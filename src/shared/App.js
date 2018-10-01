@@ -2,26 +2,13 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Home, About, Posts } from 'pages';
 import Menu from 'components/Menu';
+import { hot } from 'react-hot-loader';
+import './App.scss';
 
 class App extends Component {
-   state = {
-      SplitMe: null
-   };
-   handleClick = () => {
-      import('SplitMe').then(({ default: SplitMe }) => {
-         this.setState({
-            SplitMe
-         });
-      });
-   };
    render() {
-      const { SplitMe } = this.state;
       return (
-         <div>
-            <div>
-               <button onClick={this.handleClick}>Click me</button>
-               {SplitMe && <SplitMe />}
-            </div>
+         <div className="App">
             <Menu />
             <Route exact path="/" component={Home} />
             <Switch>
@@ -34,4 +21,4 @@ class App extends Component {
    }
 }
 
-export default App;
+export default hot(module)(App);
