@@ -1,0 +1,25 @@
+@import "utils";
+
+.HeaderNav {
+}
+.NavList {
+  display: none;
+  @include media(">small") {
+    display: flex;
+  }
+  a {
+    font-size: 1.3rem;
+    font-weight: 200;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+.NavMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include media(">small") {
+    display: none;
+  }
+}

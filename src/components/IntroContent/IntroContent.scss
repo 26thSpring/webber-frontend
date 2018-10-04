@@ -1,0 +1,12 @@
+@import "utils";
+
+.IntroContent {
+  font-family: "Roboto";
+  font-size: 4.7rem;
+  font-weight: 900;
+  margin-bottom: 5.3rem;
+
+  @include media("<small") {
+    font-size: 3.2rem;
+  }
+}
