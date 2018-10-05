@@ -1,0 +1,16 @@
+@import "utils";
+
+.TemplateTemplate {
+  flex: 1 0 0;
+  background-color: #f0f0f0;
+}
+.TemplateSection {
+  display: flex;
+  justify-content: center;
+}
+.TemplateList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  width: 90rem;
+}

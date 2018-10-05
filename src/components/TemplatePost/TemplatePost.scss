@@ -1,0 +1,76 @@
+@import "utils";
+
+.TemplatePost {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  background-color: white;
+  border-radius: 5px;
+
+  @include media("<huge") {
+    width: calc(25% - 2.5rem);
+  }
+  @include media("<big") {
+    width: calc(25% - 2.5rem);
+  }
+  @include media("<large") {
+    width: calc(33.3333% - 2.5rem);
+  }
+  @include media("<medium") {
+    width: calc(50% - 2.5rem);
+  }
+  @include media("<small") {
+    width: calc(100%);
+  }
+}
+.TemplatePost_head {
+  position: relative;
+  background-color: $oc-gray-9;
+  padding-top: 50%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.TemplatePost_head_thumbnail {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.TemplatePost_head_whiteSpace {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  transition: all 0.25s ease;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+.TemplatePost_body {
+  padding: 1rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+.TemplatePost_body_info {
+  .writer {
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: $oc-gray-9;
+  }
+  .regdate_reply {
+  }
+}
+.TemplatePost_body_toggle {
+  .toggle_like {
+  }
+  .toggle_bookmark {
+  }
+  .button_more {
+  }
+}
