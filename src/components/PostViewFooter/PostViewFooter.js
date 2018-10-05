@@ -15,6 +15,11 @@ const PostViewFooter = () => {
             <div className="replyPost_button">POST</div>
          </div>
       </div>
+      <div className="">
+        <div>
+            dddd
+        </div>
+      </div>
    );
 };
 export default PostViewFooter;

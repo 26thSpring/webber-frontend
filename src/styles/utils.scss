@@ -3,8 +3,9 @@
 
 $breakpoints: (
   small: 700px,
-  medium: 1100px,
-  large: 1600px,
+  medium: 1000px,
+  large: 1300px,
+  big: 1700px,
   huge: 2000px
 );
 
@@ -13,9 +14,11 @@ $breakpoints: (
   justify-content: center;
   align-items: center;
 }
+
 .flex-column-center {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   align-items: center;
 }
