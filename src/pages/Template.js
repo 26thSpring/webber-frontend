@@ -10,6 +10,17 @@ const Template = () => {
          <div className="TemplateSection">
             <div className="TemplateList">
                <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
+               <TemplatePost />
             </div>
          </div>
       </div>
