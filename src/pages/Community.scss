@@ -1,8 +1,22 @@
+@import "utils";
 .CommunityTemplate {
   background-color: #eeeeee;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .CommunitySection {
   display: flex;
   flex-direction: column;
+  align-content: center;
+  width: 50rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  background-color: #eeeeee;
+  @include media("<small") {
+    width: 100%;
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+  }
 }

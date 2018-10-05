@@ -11,11 +11,11 @@ const Post = () => {
             <div className="Post_thumbnail">
                <img
                   src="https://png.pngtree.com/element_origin_min_pic/17/03/18/c725e020d58d9c6ae6da4270357e4e9a.jpg"
-                  alt="thumbnail"
+                  alt="Post_thumbnail"
                />
             </div>
             <div className="Post_contents">
-               <div className="Post_nickName">NickName</div>
+               <div className="Post_nickname">NickName</div>
                <div className="Post_title">this is for title !!!</div>
             </div>
             <div className="Post_info">

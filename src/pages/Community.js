@@ -6,8 +6,8 @@ import './Community.scss';
 const Community = () => {
    return (
       <div className="CommunityTemplate">
+         <CommunityHead />
          <div className="CommunitySection">
-            <CommunityHead />
             <CommunityBody />
          </div>
       </div>
