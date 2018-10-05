@@ -1,0 +1,93 @@
+@import "utils";
+.PostViewHeader {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.2rem;
+  margin-bottom: 0rem;
+  // padding-top: 1rem;
+  //padding-left: 1rem;
+  // padding-bottom: 1rem;
+  // padding-right: 1rem;
+}
+.PostViewHeader_Head {
+  display: flex;
+  height: 7rem;
+  //justify-content: left;
+  align-items: center;
+  //box-shadow: 0rem 0.05rem 0.1rem 0rem black;
+  @include media("<small") {
+    //padding-left: 0.3rem;
+    //padding-right: 0.3rem;
+    margin-top: 0rem;
+    margin-left: 0.2rem;
+    margin-bottom: 0rem;
+    margin-right: 0.2rem;
+    //margin: 0.2rem;
+  }
+}
+.PostViewHeader_thumbnail {
+  width: 5rem;
+  height: 5rem;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  @include media("<small") {
+    margin-left: 0.8rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+.PostViewHeader_nickName {
+  font-size: 1.8rem;
+  font-weight: bold;
+  //padding-left: 2rem;
+  @include media("<small") {
+    font-size: 1.4rem;
+    // padding-left: 1rem;
+  }
+}
+.PostViewHeader_title {
+  display: flex;
+  background-color: #f8f9fa;
+  height: 5rem;
+  //padding-left: 2rem;
+  align-items: center;
+  font-size: 2.5rem;
+  @include media("<small") {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    font-size: 2rem;
+  }
+}
+.PostViewHeader_info {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  height: 5rem;
+  //padding-left: 2rem;
+  // padding-right: 2rem;
+  align-items: center;
+  font-size: 2.5rem;
+  @include media("<small") {
+    margin: 0 0.2rem 0 0.2rem;
+    font-size: 2rem;
+  }
+}
+.PostViewHeader_regDate {
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  @include media("<small") {
+  }
+}
+.PostViewHeader_reply {
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  //color: #d75a4a;
+
+  @include media("<small") {
+  }
+}

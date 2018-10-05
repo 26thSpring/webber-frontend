@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { CommunityBody } from 'components/CommunityBody';
 import { CommunityHead } from 'components/CommunityHead';
 import './Community.scss';

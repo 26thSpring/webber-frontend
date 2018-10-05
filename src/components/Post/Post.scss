@@ -1,28 +1,99 @@
+@import "utils";
 .Post {
   display: flex;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  margin-left: 14rem;
+  margin-right: 14rem;
+  background-color: white;
+  height: 7rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  justify-content: center;
+  align-items: center;
+  //box-shadow: 0rem 0.05rem 0.1rem 0rem black;
+  @include media("<small") {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    margin: 0.2rem;
+  }
 }
 .Post_thumbnail {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 5rem;
+  height: 5rem;
   img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
   }
+  @include media("<small") {
+    margin-left: 0.8rem;
+    width: 4rem;
+    height: 4rem;
+  }
 }
 .Post_contents {
-  flex: 1 0 200px;
+  flex: 1 0 0px;
+  height: 5.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  @include media("<small") {
+    padding-top: 0.5rem;
+  }
+  //border: 0.1rem solid black;
 }
 .Post_nickName {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  @include media("<small") {
+    font-size: 1.4rem;
+  }
 }
-.Post-title {
+.Post_title {
+  font-size: 1.4rem;
+  @include media("<small") {
+    font-size: 1rem;
+  }
 }
 .Post_info {
+  flex: 0 0 8rem;
+  width: 5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  //border: 0.01rem solid black;
+  @include media("<small") {
+    flex: 0 0 6rem;
+    width: 3rem;
+  }
 }
 .Post_reply {
+  display: flex;
+  font-size: 1rem;
+  img {
+    display: none;
+  }
+  @include media("<small") {
+    img {
+      display: inherit;
+    }
+  }
 }
 .Post_views {
+  font-size: 1rem;
+  @include media("<small") {
+  }
 }
 .Post_regDate {
+  display: flex;
+  font-size: 1rem;
+  img {
+    display: none;
+  }
+  @include media("<small") {
+    img {
+      display: inherit;
+    }
+  }
 }

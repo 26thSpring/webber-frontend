@@ -1,0 +1,20 @@
+@import "utils";
+.PostViewTemplate {
+  display: flex;
+  background-color: #eeeeee;
+  flex-grow: 1;
+  justify-content: center;
+}
+.PostViewSection {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  background-color: #f8f9fa;
+  @include media("<small") {
+    width: 100%;
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+  }
+}

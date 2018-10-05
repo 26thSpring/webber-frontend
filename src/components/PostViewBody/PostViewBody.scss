@@ -1,0 +1,21 @@
+@import "utils";
+.PostViewBody {
+  display: flex;
+  margin-top: 0.2rem;
+  margin-bottom: 0rem;
+  // padding-top: 1rem;
+  // padding-left: 2rem;
+  // padding-bottom: 1rem;
+  // padding-right: 2rem;
+  justify-content: left;
+  align-items: center;
+  @include media("<small") {
+    // padding-left: 2rem;
+    // padding-right: 2rem;
+    margin-top: 0rem;
+    margin-left: 0.2rem;
+    margin-bottom: 0rem;
+    margin-right: 0.2rem;
+    //margin: 0.2rem;
+  }
+}

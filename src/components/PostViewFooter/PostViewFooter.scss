@@ -1,0 +1,35 @@
+@import "utils";
+.PostViewFooter {
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  justify-content: left;
+  align-items: center;
+  font-weight: 900;
+  @include media("<small") {
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+  }
+}
+textarea {
+  resize: none;
+  min-height: 4rem;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+.replyPost {
+  display: flex;
+  justify-content: flex-end;
+}
+.replyPost_button {
+  font-family: "Roboto";
+  background-color: #66bbff;
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  height: 3rem;
+  justify-content: center;
+  width: 5rem;
+  color: white;
+}
