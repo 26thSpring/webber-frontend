@@ -1,0 +1,28 @@
+.Post {
+  display: flex;
+}
+.Post_thumbnail {
+  width: 3.5rem;
+  height: 3.5rem;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+.Post_contents {
+  flex: 1 0 200px;
+}
+.Post_nickName {
+  font-size: 1.2rem;
+}
+.Post-title {
+}
+.Post_info {
+}
+.Post_reply {
+}
+.Post_views {
+}
+.Post_regDate {
+}
