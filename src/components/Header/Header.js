@@ -9,15 +9,15 @@ import './Header.scss';
 // };
 
 const MenuDiv = ({ Active, onClickHandle }) => {
-   let MenuStyleRight = Active === true ? '0' : '-100rem';
+   let MenuStyleRight = Active === true ? '0' : '-100%';
    const MenuStyle = {
       display: 'flex',
       flexDirection: 'column',
       position: 'fixed',
       backgroundColor: 'rgba(0,0,0,0.8)',
       //top: MenuStyleRight,
-      paddingRight: '1.5rem',
       right: MenuStyleRight,
+      paddingRight: '1.5rem',
       width: '100%',
       height: '100%',
       color: '#eeeeee',
@@ -25,7 +25,7 @@ const MenuDiv = ({ Active, onClickHandle }) => {
       fontSize: '2rem',
       marginTop: '2.7rem',
       zIndex: '99',
-      transition: 'all 1.4s ease'
+      transition: 'all 0.25s ease'
    };
    return (
       <div className="MenuDiv" style={MenuStyle}>
