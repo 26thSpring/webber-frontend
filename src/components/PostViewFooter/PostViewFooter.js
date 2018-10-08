@@ -9,7 +9,7 @@ const PostViewFooter = () => {
             <textarea
                name="replyForm"
                id="replyForm"
-               placeholder="Add Your Comment!"
+               placeholder="Add Your Comment! (140)"
             />
          </div>
          <div className="replyPost">

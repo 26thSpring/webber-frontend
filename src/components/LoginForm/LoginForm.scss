@@ -1,12 +1,60 @@
 .LoginForm {
+  border: 0.01rem solid black;
+  background-color: white;
+  width: 30rem;
+  height: 35rem;
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  align-items: center;
 }
 .LoginHeader {
+  border: 0.01rem solid black;
+  font-size: 2rem;
+  font-weight: 900;
+  color: blue;
 }
 .LoginBody {
+  //border: 0.01rem solid black;
 }
 .login_button_google {
+  display: flex;
+  align-items: center;
+  //border: 0.01rem solid black;
+  background-color: #dd4b39;
+  color: white;
+  width: 20rem;
+}
+.Google {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  //border: 0.01rem solid black;
 }
 .login_button_facebook {
+  display: flex;
+  align-items: center;
+  //border: 0.01rem solid black;
+  background-color: #475993;
+  color: white;
+  width: 20rem;
+}
+.Facebook {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 2rem;
+  font-weight: 900;
 }
 .login_button_naver {
+  display: flex;
+  align-items: center;
+  //border: 0.01rem solid black;
+  background-color: #dd4b39;
+  color: white;
+  width: 20rem;
+}
+.Naver {
 }
