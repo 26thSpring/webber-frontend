@@ -13,6 +13,7 @@ const HeaderNav = ({ onClickHandle }) => {
                <Link to="/template">template</Link>
                <Link to="/community">community</Link>
                <Link to="/login">login</Link>
+               <Link to="/setting">setting</Link>
             </div>
             <IconContext.Provider value={{ size: '27', className: 'NavMore' }}>
                <FaBars onClick={onClickHandle.bind(this)} />

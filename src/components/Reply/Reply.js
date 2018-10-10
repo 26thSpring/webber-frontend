@@ -20,18 +20,22 @@ const Reply = () => {
             </div>
             <div className="Reply_contents">this is Reply contents</div>
             <div className="Reply_buttons">
-               <IconContext.Provider
-                  className="Reply_modify"
-                  value={{ size: '18' }}
-               >
-                  <GoTools />
-               </IconContext.Provider>
-               <IconContext.Provider
-                  className="Reply_trash"
-                  value={{ size: '18' }}
-               >
-                  <GoTrashcan />
-               </IconContext.Provider>
+               <div className="Reply_modify">
+                  <IconContext.Provider
+                     className="Reply_modify_button"
+                     value={{ size: '18' }}
+                  >
+                     <GoTools />
+                  </IconContext.Provider>
+               </div>
+               <div className="Reply_trash">
+                  <IconContext.Provider
+                     className="Reply_trash_button"
+                     value={{ size: '18' }}
+                  >
+                     <GoTrashcan />
+                  </IconContext.Provider>
+               </div>
             </div>
          </div>
       </div>

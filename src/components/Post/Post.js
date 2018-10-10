@@ -21,16 +21,20 @@ const Post = () => {
             </div>
             <div className="Post_info">
                <div className="Post_reply">
-                  <IconContext.Provider value={{ size: '18' }}>
-                     <GoComment />
-                  </IconContext.Provider>
-                  10
+                  <div className="Post_reply_icon">
+                     <IconContext.Provider value={{ size: '18' }}>
+                        <GoComment />
+                     </IconContext.Provider>
+                  </div>
+                  <div className="Post_reply_value">10 replys</div>
                </div>
                <div className="Post_regDate">
-                  <IconContext.Provider value={{ size: '18' }}>
-                     <GoClock />
-                  </IconContext.Provider>
-                  10
+                  <div className="Post_regDate_icon">
+                     <IconContext.Provider value={{ size: '18' }}>
+                        <GoClock />
+                     </IconContext.Provider>
+                  </div>
+                  <div className="Post_regDate_value">10 mins</div>
                </div>
                <div className="Post_views">10 views</div>
             </div>

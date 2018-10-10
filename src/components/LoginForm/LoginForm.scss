@@ -1,60 +1,93 @@
+@import "utils";
 .LoginForm {
-  border: 0.01rem solid black;
-  background-color: white;
-  width: 100%;
-  height: 30rem;
+  //border: 0.01rem solid black;
   display: flex;
   flex-direction: column;
-  //justify-content: center;
   align-items: center;
-}
-.LoginHeader {
-  border: 0.01rem solid black;
-  font-size: 2rem;
-  font-weight: 900;
-  color: blue;
-}
-.LoginBody {
-  //border: 0.01rem solid black;
-}
-.login_button_google {
-  display: flex;
-  align-items: center;
-  //border: 0.01rem solid black;
-  background-color: #dd4b39;
-  color: white;
-  width: 20rem;
-}
-.Google {
-  display: flex;
   justify-content: center;
-  align-content: center;
+  background-color: white;
+  border-radius: 2px;
+  padding-top: 1rem;
+  @include media("<small") {
+    width: 100%;
+  }
+}
+.LoginForm_title {
   font-size: 2rem;
-  font-weight: 900;
-  //border: 0.01rem solid black;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
 }
-.login_button_facebook {
-  display: flex;
-  align-items: center;
-  //border: 0.01rem solid black;
-  background-color: #475993;
-  color: white;
-  width: 20rem;
+
+.LoginForm_logo {
+  width: 4rem;
+  border-right: 0.02rem solid #eeeeee;
 }
-.Facebook {
+.LoginForm_logo_naver {
   display: flex;
+  width: 4rem;
+  font-weight: bolder;
+  //font-size: 2rem;
   justify-content: center;
-  align-content: center;
-  font-size: 2rem;
-  font-weight: 900;
+  border-right: 0.02rem solid #eeeeee;
 }
-.login_button_naver {
+.LoginForm_name {
+  padding-left: 1rem;
+}
+
+.LoginForm_google {
   display: flex;
   align-items: center;
-  //border: 0.01rem solid black;
-  background-color: #dd4b39;
-  color: white;
+  margin-top: 1.5rem;
+  border: 1px solid #d72020;
   width: 20rem;
+  height: 4rem;
+  background: #c92a2a;
+  border-radius: 2px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.6rem;
 }
-.Naver {
+.LoginForm_google:hover {
+  background: #d72020;
+}
+.LoginForm_facebook {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  border-radius: 2px;
+  width: 20rem;
+  height: 4rem;
+  background: #1864ab;
+  border: 1px solid #1864ab;
+  color: white;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+.LoginForm_facebook:hover {
+  background: #1971c2;
+}
+.LoginForm_naver {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  border-radius: 2px;
+  width: 20rem;
+  height: 4rem;
+  background: #06a335;
+  border: 1px solid #00c03a;
+  color: white;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+.LoginForm_naver:hover {
+  background: #00c03a;
+}
+.LoginForm_bottom {
+  border-top: 0.1rem solid #eeeeee;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  width: 20rem;
+  height: 4rem;
 }

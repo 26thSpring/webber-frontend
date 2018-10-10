@@ -1,0 +1,67 @@
+@import "utils";
+.SettingTemplate {
+  background-color: #eeeeee;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.SettingSection {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  height: 100%;
+  margin-top: 2.7rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  background-color: white;
+  @include media("<small") {
+    width: 100%;
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+    align-items: center;
+  }
+}
+.SettingHeader {
+  font-size: 3rem;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+  @include media("<small") {
+    margin-bottom: 2rem;
+  }
+}
+.SettingBody {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  @include media("<small") {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.Setting_SettingUser {
+  width: 27%;
+  border: 0.001rem solid black;
+  @include media("<small") {
+    width: 60%;
+    margin-bottom: 2rem;
+  }
+}
+.Setting_SettingBoard {
+  width: 27%;
+  border: 0.001rem solid black;
+  @include media("<small") {
+    width: 60%;
+    margin-bottom: 2rem;
+  }
+}
+.Setting_SettingAnal {
+  width: 27%;
+  border: 0.001rem solid black;
+  @include media("<small") {
+    width: 60%;
+    margin-bottom: 2rem;
+  }
+}
