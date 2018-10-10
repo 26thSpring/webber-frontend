@@ -9,11 +9,11 @@ const HeaderNav = ({ onClickHandle }) => {
       <Fragment>
          <div className="HeaderNav">
             <div className="NavList">
+               <Link to="/Admin">admin</Link>
                <Link to="/editor">editor</Link>
                <Link to="/template">template</Link>
                <Link to="/community">community</Link>
                <Link to="/login">login</Link>
-               <Link to="/setting">setting</Link>
             </div>
             <IconContext.Provider value={{ size: '27', className: 'NavMore' }}>
                <FaBars onClick={onClickHandle.bind(this)} />
