@@ -4,19 +4,14 @@ import { HeaderLogo } from 'components/HeaderLogo';
 import { HeaderNav } from 'components/HeaderNav';
 import './Header.scss';
 
-// const SetTime = ({ Active }) => {
-//       let SetTimeLink = Active === true ?
-// };
-
 const MenuDiv = ({ Active, onClickHandle }) => {
-   let MenuStyleRight = Active === true ? '0' : '-100%';
+   let MenuSlide = Active === true ? '0' : '-100%';
    const MenuStyle = {
       display: 'flex',
       flexDirection: 'column',
       position: 'fixed',
       backgroundColor: 'rgba(0,0,0,0.8)',
-      //top: MenuStyleRight,
-      right: MenuStyleRight,
+      right: MenuSlide,
       paddingRight: '1.5rem',
       width: '100%',
       height: '100%',
@@ -41,6 +36,9 @@ const MenuDiv = ({ Active, onClickHandle }) => {
          <Link to="/login" onClick={onClickHandle.bind(this)}>
             login
          </Link>
+         <Link to="/setting" onClick={onClickHandle.bind(this)}>
+            setting
+         </Link>
       </div>
    );
 };
@@ -54,13 +52,13 @@ class Header extends Component {
          this.setState({
             Active: !this.state.Active
          });
-         console.log(this.state.Active);
+         //console.log(this.state.Active);
       };
 
       return (
          <Fragment>
             <div className="Header">
-               <HeaderLogo />
+               <HeaderLogo Active={this.state.Active} />
                <HeaderNav onClickHandle={onClickHandle} />
             </div>
             <MenuDiv Active={this.state.Active} onClickHandle={onClickHandle} />

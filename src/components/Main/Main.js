@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Intro, Login, Community, PostView, Template } from 'pages';
+import { Intro, Login, Community, PostView, Template, Setting } from 'pages';
 const Main = () => {
    return (
       <Switch>
@@ -9,6 +9,7 @@ const Main = () => {
          <Route path="/template" component={Template} />
          <Route path="/community" component={Community} />
          <Route path="/PostView" component={PostView} />
+         <Route path="/setting" component={Setting} />
          <Route path="/" component={Intro} />
       </Switch>
    );

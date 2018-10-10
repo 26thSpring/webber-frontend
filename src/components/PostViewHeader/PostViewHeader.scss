@@ -75,7 +75,7 @@
     font-size: 2rem;
   }
 }
-.PostViewHeader_regDate {
+.PostViewHeader_regDate_value {
   display: flex;
   font-size: 1rem;
   font-weight: bold;
@@ -84,10 +84,15 @@
 }
 .PostViewHeader_reply {
   display: flex;
+}
+.PostViewHeader_reply_icon {
+  display: flex;
+  align-items: center;
+  padding-right: 0.2rem;
+}
+.PostViewHeader_reply_value {
+  display: flex;
   font-size: 1rem;
-  font-weight: bold;
-  //color: #d75a4a;
-
-  @include media("<small") {
-  }
+  align-items: center;
+  padding-bottom: 0.3rem;
 }
