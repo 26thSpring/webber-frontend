@@ -1,0 +1,46 @@
+@import "utils";
+
+.EditorHeader {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 3.2rem;
+  padding: 0.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.77);
+  color: white;
+  z-index: 10;
+}
+.EditorHeader_title {
+  display: flex;
+  align-items: center;
+}
+.EditorHeaderTitle {
+  border-left: 1px solid $oc-gray-4;
+  margin-left: 0.8rem;
+  padding-left: 0.8rem;
+}
+.EditorHeader_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn_editor {
+  border-radius: 3px;
+  padding: 0.3rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+}
+.EditorHeader_btn_download {
+  @extend .btn_editor;
+  background-color: $oc-violet-6;
+}
+.EditorHeader_btn_save {
+  @extend .btn_editor;
+  background-color: $oc-indigo-6;
+}

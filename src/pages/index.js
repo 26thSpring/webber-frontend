@@ -5,3 +5,4 @@ export const Login = withSplitting(() => import('./Login'));
 export const Template = withSplitting(() => import('./Template'));
 export const Community = withSplitting(() => import('./Community'));
 export const PostView = withSplitting(() => import('./PostView'));
+export const Editor = withSplitting(() => import('./Editor'));
