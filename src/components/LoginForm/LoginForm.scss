@@ -38,17 +38,17 @@
   display: flex;
   align-items: center;
   margin-top: 1.5rem;
-  border: 1px solid #d72020;
   width: 20rem;
   height: 4rem;
   background: #c92a2a;
+  border: 1px solid #d23838;
   border-radius: 2px;
   color: white;
   font-weight: 600;
   font-size: 1.6rem;
 }
 .LoginForm_google:hover {
-  background: #d72020;
+  background: #d23838;
 }
 .LoginForm_facebook {
   display: flex;
@@ -58,13 +58,13 @@
   width: 20rem;
   height: 4rem;
   background: #1864ab;
-  border: 1px solid #1864ab;
+  border: 1px solid #2977c1;
   color: white;
   font-weight: 600;
   font-size: 1.6rem;
 }
 .LoginForm_facebook:hover {
-  background: #1971c2;
+  background: #2977c1;
 }
 .LoginForm_naver {
   display: flex;

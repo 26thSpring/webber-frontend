@@ -1,12 +1,12 @@
 @import "utils";
-.SettingTemplate {
+.AdminTemplate {
   background-color: #eeeeee;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.SettingSection {
+.AdminSection {
   display: flex;
   flex-direction: column;
   width: 50rem;
@@ -22,8 +22,8 @@
     align-items: center;
   }
 }
-.SettingHeader {
-  font-size: 3rem;
+.Admin_title {
+  font-size: 2.5rem;
   font-weight: 900;
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@
     margin-bottom: 2rem;
   }
 }
-.SettingBody {
+.Admin_body {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -41,7 +41,7 @@
     align-items: center;
   }
 }
-.Setting_SettingUser {
+.Admin_manageUser {
   width: 27%;
   border: 0.001rem solid black;
   @include media("<small") {
@@ -49,7 +49,7 @@
     margin-bottom: 2rem;
   }
 }
-.Setting_SettingBoard {
+.Admin_manageBoard {
   width: 27%;
   border: 0.001rem solid black;
   @include media("<small") {
@@ -57,7 +57,7 @@
     margin-bottom: 2rem;
   }
 }
-.Setting_SettingAnal {
+.Admin_analytics {
   width: 27%;
   border: 0.001rem solid black;
   @include media("<small") {
