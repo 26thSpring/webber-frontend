@@ -1,20 +1,23 @@
 @import "utils";
 .LoginTemplate {
-  display: flex;
   background-color: #eeeeee;
   flex-grow: 1;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .LoginSection {
   display: flex;
   flex-direction: column;
-  width: 30rem;
+  align-content: center;
+  justify-content: center;
+  width: 50rem;
   padding-top: 3rem;
   padding-right: 3rem;
   padding-left: 3rem;
   background-color: #eeeeee;
   @include media("<small") {
-    width: 30rem;
+    width: 100%;
     padding-right: 0.4rem;
     padding-left: 0.4rem;
   }

@@ -1,7 +1,8 @@
 import React from 'react';
 import './Reply.scss';
-import reply_modify from 'static/images/reply_modify.svg';
-import reply_trash from 'static/images/reply_trash.svg';
+import { IconContext } from 'react-icons';
+import { GoTrashcan } from 'react-icons/go/';
+import { GoTools } from 'react-icons/go/';
 
 const Reply = () => {
    return (
@@ -19,16 +20,22 @@ const Reply = () => {
             </div>
             <div className="Reply_contents">this is Reply contents</div>
             <div className="Reply_buttons">
-               <img
-                  className="Reply_modify"
-                  src={reply_modify}
-                  alt="Reply_modify"
-               />
-               <img
-                  className="Reply_trash"
-                  src={reply_trash}
-                  alt="Reply_trash"
-               />
+               <div className="Reply_modify">
+                  <IconContext.Provider
+                     className="Reply_modify_button"
+                     value={{ size: '18' }}
+                  >
+                     <GoTools />
+                  </IconContext.Provider>
+               </div>
+               <div className="Reply_trash">
+                  <IconContext.Provider
+                     className="Reply_trash_button"
+                     value={{ size: '18' }}
+                  >
+                     <GoTrashcan />
+                  </IconContext.Provider>
+               </div>
             </div>
          </div>
       </div>

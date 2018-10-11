@@ -1,0 +1,32 @@
+@import "utils";
+
+.BoxModel {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.BoxModel_btn_dropdown {
+}
+.BoxModel_dropdown_menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  background-color: $oc-gray-7;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.07);
+}
+.BoxModel_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 4.3rem;
+  background-color: $oc-blue-4;
+}
+.BoxModel_span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

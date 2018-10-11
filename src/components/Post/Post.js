@@ -1,8 +1,9 @@
 import React from 'react';
 import './Post.scss';
-import reply_img from 'static/images/reply_img.svg';
-import clock_img from 'static/images/clock_img.svg';
 import { Link } from 'react-router-dom';
+import { IconContext } from 'react-icons';
+import { GoComment } from 'react-icons/go/';
+import { GoClock } from 'react-icons/go/';
 
 const Post = () => {
    return (
@@ -20,12 +21,20 @@ const Post = () => {
             </div>
             <div className="Post_info">
                <div className="Post_reply">
-                  <img className="" src={reply_img} alt="reply_img" />
-                  10
+                  <div className="Post_reply_icon">
+                     <IconContext.Provider value={{ size: '18' }}>
+                        <GoComment />
+                     </IconContext.Provider>
+                  </div>
+                  <div className="Post_reply_value">10 replys</div>
                </div>
                <div className="Post_regDate">
-                  <img src={clock_img} alt="clock_img" />
-                  10
+                  <div className="Post_regDate_icon">
+                     <IconContext.Provider value={{ size: '18' }}>
+                        <GoClock />
+                     </IconContext.Provider>
+                  </div>
+                  <div className="Post_regDate_value">10 mins</div>
                </div>
                <div className="Post_views">10 views</div>
             </div>

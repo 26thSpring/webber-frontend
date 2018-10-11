@@ -1,14 +1,16 @@
 import React from 'react';
 import { CommunityBody } from 'components/CommunityBody';
-import { CommunityHead } from 'components/CommunityHead';
+import { PageHeader } from 'components/PageHeader';
 import './Community.scss';
 
 const Community = () => {
    return (
       <div className="CommunityTemplate">
-         <CommunityHead />
+         <PageHeader name="community" />
          <div className="CommunitySection">
-            <CommunityBody />
+            <div className="CommunityBody">
+               <CommunityBody />
+            </div>
          </div>
       </div>
    );

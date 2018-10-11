@@ -1,10 +1,11 @@
 import React from 'react';
 import './EditorNav.scss';
+import { BoxModel } from 'components/BoxModel';
 
 const EditorNav = () => {
    return (
       <div className="EditorNav">
-         <div className="">1</div>
+         <BoxModel />
       </div>
    );
 };

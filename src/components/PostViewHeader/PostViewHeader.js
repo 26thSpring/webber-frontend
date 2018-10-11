@@ -1,6 +1,7 @@
 import React from 'react';
 import './PostViewHeader.scss';
-import reply_img from 'static/images/reply_img.svg';
+import { IconContext } from 'react-icons';
+import { GoComment } from 'react-icons/go/';
 
 const PostViewHeader = () => {
    return (
@@ -18,10 +19,14 @@ const PostViewHeader = () => {
          <div className="PostViewHeader_title">this is for title !!!</div>
 
          <div className="PostViewHeader_info">
-            <div className="PostViewHeader_regDate">2018-10-05</div>
+            <div className="PostViewHeader_regDate_value">2018-10-05</div>
             <div className="PostViewHeader_reply">
-               <img src={reply_img} alt="reply_img" />
-               10 replys
+               <div className="PostViewHeader_reply_icon">
+                  <IconContext.Provider value={{ size: '18' }}>
+                     <GoComment />
+                  </IconContext.Provider>
+               </div>
+               <div className="PostViewHeader_reply_value">10 replys</div>
             </div>
          </div>
       </div>
