@@ -5,14 +5,24 @@ import './App.scss';
 import { HeaderBack } from 'components/HeaderBack';
 import { Header } from 'components/Header';
 import { Main } from 'components/Main';
+import ScrollUpButton from 'react-scroll-up-button';
 
 class App extends Component {
+   componentDidUpdate() {
+      window.scrollTo(0, 0);
+   }
    render() {
       return (
          <div className="App">
             <HeaderBack />
             <Header />
             <Main />
+            <div>
+               <ScrollUpButton
+                  TransitionClassName="ScrollUpButton__Toggled"
+                  style={{ backgroundColor: 'rgba(112,72,232,0.7)' }}
+               />
+            </div>
          </div>
       );
    }
