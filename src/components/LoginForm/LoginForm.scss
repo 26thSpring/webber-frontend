@@ -41,14 +41,17 @@
   width: 20rem;
   height: 4rem;
   background: #c92a2a;
-  border: 1px solid #d23838;
+  border: 1px solid #d65858;
   border-radius: 2px;
   color: white;
   font-weight: 600;
   font-size: 1.6rem;
 }
 .LoginForm_google:hover {
-  background: #d23838;
+  background: #d65858;
+}
+.LoginForm_google:active {
+  background: #d65858;
 }
 .LoginForm_facebook {
   display: flex;
@@ -58,13 +61,16 @@
   width: 20rem;
   height: 4rem;
   background: #1864ab;
-  border: 1px solid #2977c1;
+  border: 1px solid #3c88cf;
   color: white;
   font-weight: 600;
   font-size: 1.6rem;
 }
 .LoginForm_facebook:hover {
-  background: #2977c1;
+  background: #3c88cf;
+}
+.LoginForm_facebook:active {
+  background: #3c88cf;
 }
 .LoginForm_naver {
   display: flex;
@@ -73,14 +79,17 @@
   border-radius: 2px;
   width: 20rem;
   height: 4rem;
-  background: #06a335;
-  border: 1px solid #00c03a;
+  background: black;
+  border: 1px solid rgb(68, 68, 68);
   color: white;
   font-weight: 600;
   font-size: 1.6rem;
 }
 .LoginForm_naver:hover {
-  background: #00c03a;
+  background: rgb(68, 68, 68);
+}
+.LoginForm_naver:active {
+  background: rgb(68, 68, 68);
 }
 .LoginForm_bottom {
   border-top: 0.1rem solid #eeeeee;

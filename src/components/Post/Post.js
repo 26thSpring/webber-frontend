@@ -2,8 +2,7 @@ import React from 'react';
 import './Post.scss';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { GoComment } from 'react-icons/go/';
-import { GoClock } from 'react-icons/go/';
+import { GoComment, GoClock } from 'react-icons/go';
 
 const Post = () => {
    return (
@@ -17,7 +16,7 @@ const Post = () => {
             </div>
             <div className="Post_contents">
                <div className="Post_nickname">NickName</div>
-               <div className="Post_title">this is for title !!!</div>
+               <div className="Post_title">Post.js</div>
             </div>
             <div className="Post_info">
                <div className="Post_reply">

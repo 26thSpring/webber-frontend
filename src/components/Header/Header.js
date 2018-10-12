@@ -18,7 +18,7 @@ const MenuDiv = ({ Active, onClickHandle }) => {
       color: '#eeeeee',
       alignItems: 'flex-end',
       fontSize: '2rem',
-      marginTop: '2.7rem',
+      marginTop: '3.2rem',
       zIndex: '99',
       transition: 'all 0.25s ease'
    };
