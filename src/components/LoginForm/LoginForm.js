@@ -6,24 +6,39 @@ import { FaGoogle, FaFacebookSquare } from 'react-icons/fa';
 import Naver_logo from 'static/images/naver_icon.svg';
 import { GoogleLogin } from 'react-google-login';
 //import { GoogleLogout } from 'react-google-login';
-//import { FacebookLogin, FacebookLogout } from 'react-google-login';
+//import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 const responseGoogle = response => {
-   console.log(response.accessToken);
+   console.log('response' + response);
    if (response.accessToken) {
-      // const accessToken = JSON.stringify({
-      //    accessToken: response.accessToken
-      // });
-
       fetch('http://localhost:9090', {
+         //credentials: 'same-origin',
          method: 'POST',
-         //    headers: {
-         //       //'Content-Type': 'application/json'
-         //       //'Content-Type': 'text/plain'
-         //    },
-         body: response
+         header: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(response)
       }).then(res => {
-         console.log(res);
+         console.log('res' + res);
+      });
+   }
+};
+
+const responseFacebook = response => {
+   console.log('response' + JSON.stringify(response));
+   if (response.accessToken) {
+      fetch('http://localhost:9090', {
+         //credentials: 'same-origin',
+         method: 'POST',
+         header: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(response)
+      }).then(res => {
+         console.log('res' + res);
       });
    }
 };
@@ -59,11 +74,25 @@ class LoginForm extends Component {
                   <div className="LoginForm_name">google</div>
                </GoogleLogin>
             </div>
-            <div className="LoginForm_facebook">
-               <IconContext.Provider value={{ size: '35' }}>
-                  <FaFacebookSquare className="LoginForm_logo" />
-               </IconContext.Provider>
-               <div className="LoginForm_name">facebook</div>
+            <div>
+               <FacebookLogin
+                  appId="177648546460414"
+                  autoLoad={true}
+                  fields="name,email,picture"
+                  onClick={null}
+                  callback={responseFacebook}
+                  render={renderProps => (
+                     <div
+                        className="LoginForm_facebook"
+                        onClick={renderProps.onClick}
+                     >
+                        <IconContext.Provider value={{ size: '35' }}>
+                           <FaFacebookSquare className="LoginForm_logo" />
+                        </IconContext.Provider>
+                        <div className="LoginForm_name">facebook</div>
+                     </div>
+                  )}
+               />
             </div>
             <div className="LoginForm_naver" onClick={this.linkToNaverLogin}>
                {/* <div className="LoginForm_logo_naver">N</div> */}
@@ -75,11 +104,6 @@ class LoginForm extends Component {
 
             <div className="LoginForm_bottom">
                <Link to="/template">look around without Login!</Link>
-               {/* <Router
-                     onUpdate={() => window.scrollTo(0, 0)}
-                     history={createBrowserHistory()}
-                  >
-                  </Router> */}
             </div>
          </div>
       );
