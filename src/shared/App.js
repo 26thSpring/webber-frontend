@@ -8,6 +8,9 @@ import { EditorHeader } from 'components/EditorHeader';
 import { Main } from 'components/Main';
 
 class App extends Component {
+   componentDidMount() {
+      fetch('http://localhost:8080').then(res => console.log(res));
+   }
    render() {
       return (
          <div className="App">
