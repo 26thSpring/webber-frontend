@@ -6,10 +6,14 @@ import { HeaderBack } from 'components/HeaderBack';
 import { Header } from 'components/Header';
 import { EditorHeader } from 'components/EditorHeader';
 import { Main } from 'components/Main';
+import ScrollUpButton from 'react-scroll-up-button';
 
 class App extends Component {
    componentDidMount() {
       fetch('http://localhost:8080').then(res => console.log(res));
+   }
+   componentDidUpdate() {
+      window.scrollTo(0, 0);
    }
    render() {
       return (
@@ -20,6 +24,12 @@ class App extends Component {
                <Header />
             </Switch>
             <Main />
+            <div>
+               <ScrollUpButton
+                  TransitionClassName="ScrollUpButton__Toggled"
+                  style={{ backgroundColor: 'rgba(112,72,232,0.7)' }}
+               />
+            </div>
          </div>
       );
    }

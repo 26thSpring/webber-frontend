@@ -2,7 +2,7 @@ import React from 'react';
 import './HeaderLogo.scss';
 import { Link } from 'react-router-dom';
 
-const HeaderLogo = () => {
+const HeaderLogo = ({ onClickHandle }) => {
    return (
       <Link to="/" className="HeaderLogo">
          W
