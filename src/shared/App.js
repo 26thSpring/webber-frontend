@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-//import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import './App.scss';
 import { HeaderBack } from 'components/HeaderBack';
 import { Header } from 'components/Header';
+import { EditorHeader } from 'components/EditorHeader';
 import { Main } from 'components/Main';
 import ScrollUpButton from 'react-scroll-up-button';
 
@@ -15,7 +16,10 @@ class App extends Component {
       return (
          <div className="App">
             <HeaderBack />
-            <Header />
+            <Switch>
+               <Route path="/editor" component={EditorHeader} />
+               <Header />
+            </Switch>
             <Main />
             <div>
                <ScrollUpButton

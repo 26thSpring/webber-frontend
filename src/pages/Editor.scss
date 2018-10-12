@@ -1,0 +1,11 @@
+@import "utils";
+
+.EditorTemplate {
+  position: relative;
+  flex: 1 0 0;
+}
+.EditorSection {
+  position: absolute;
+  display: flex;
+  height: 100%;
+}
