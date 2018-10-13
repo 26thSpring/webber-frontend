@@ -7,10 +7,7 @@ import {
    Template,
    Community,
    PostView,
-   Admin,
-   ManageUser,
-   ManageBoard,
-   Analytics
+   Profile
 } from 'pages';
 const Main = () => {
    return (
@@ -19,11 +16,8 @@ const Main = () => {
          <Route path="/editor" component={Editor} />
          <Route path="/template" component={Template} />
          <Route path="/community" component={Community} />
-         <Route path="/PostView" component={PostView} />
-         <Route path="/Admin" component={Admin} />
-         <Route path="/ManageUser" component={ManageUser} />
-         <Route path="/ManageBoard" component={ManageBoard} />
-         <Route path="/Analytics" component={Analytics} />
+         <Route path="/postView" component={PostView} />
+         <Route path="/profile" component={Profile} />
          <Route path="/" component={Intro} />
       </Switch>
    );
