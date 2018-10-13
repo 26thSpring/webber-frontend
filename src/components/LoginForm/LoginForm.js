@@ -10,29 +10,12 @@ import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 const responseGoogle = response => {
-<<<<<<< HEAD
-   console.log(response);
-=======
    console.log('response' + response);
->>>>>>> 2c5bf3ffd5910e93d730dce9546b36ab28bdc4b5
    if (response.accessToken) {
       fetch('http://localhost:9090', {
          //credentials: 'same-origin',
          method: 'POST',
          header: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-         },
-         body: JSON.stringify(response)
-      }).then(res => {
-         console.log('res' + res);
-      });
-   }
-};
-
-      fetch('http://localhost:8080', {
-         method: 'POST',
-         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
          },
@@ -80,7 +63,7 @@ class LoginForm extends Component {
                   autoLoad={true}
                   fields="name,email,picture"
                   onClick={null}
-                  callback={responseFacebook}
+                  callback={null}
                   render={renderProps => (
                      <div
                         className="LoginForm_facebook"
