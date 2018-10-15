@@ -34,7 +34,7 @@ const componentDrop = e => {
 const EditorView = () => {
    return (
       <div onDrop={componentDrop} onDragOver={allowDrop} className="EditorView">
-         <CustomComponent what={'span'} />
+         <CustomComponent what={'span'} id={'null'} />
       </div>
    );
 };

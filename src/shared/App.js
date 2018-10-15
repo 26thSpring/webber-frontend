@@ -18,8 +18,12 @@ class App extends Component {
    render() {
       return (
          <div className="App">
-            <HeaderBack />
             <Switch>
+               <Route path="/postwriter" component={null} />
+               <HeaderBack />
+            </Switch>
+            <Switch>
+               <Route path="/postwriter" component={null} />
                <Route path="/editor" component={EditorHeader} />
                <Header />
             </Switch>

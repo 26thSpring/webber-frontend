@@ -1,0 +1,99 @@
+@import "utils";
+
+.RegisterForm {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  margin-top: 3rem;
+  background-color: white;
+  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.6);
+}
+.RegisterForm_header {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.RegisterForm_header_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $oc-violet-7;
+  font-size: 1.9rem;
+  font-weight: 700;
+  padding: 0.5rem;
+
+  span {
+    font-size: 1.3rem;
+    align-self: flex-end;
+    padding-bottom: 0.2rem;
+    color: $oc-gray-2;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+}
+.RegisterForm_header_info {
+  background-color: $oc-violet-5;
+  font-size: 1.7rem;
+  font-weight: 100;
+  padding: 1rem;
+}
+.RegisterForm_body {
+  padding: 2rem;
+
+  input[type="text"] {
+    font-size: 1.2rem;
+    font-weight: 400;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 0.3rem;
+    padding-bottom: 0.3rem;
+
+    &:focus {
+      outline: none;
+      border-color: $oc-violet-4;
+    }
+  }
+  span {
+    color: $oc-red-7;
+  }
+}
+.register_input_form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.3rem;
+}
+.RegisterForm_body_email {
+}
+.RegisterForm_body_nickname {
+}
+.RegisterForm_body_introduce {
+}
+.RegisterForm_footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  input[type="submit"] {
+    display: none;
+  }
+}
+.RegisterForm_footer_btn_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $oc-violet-7;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 5px;
+  padding: 0.2rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background-color: $oc-violet-5;
+    cursor: pointer;
+  }
+}

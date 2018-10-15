@@ -16,17 +16,20 @@ const responseGoogle = response => {
 
    const user = { googleId, accessToken, email };
    if (response.accessToken) {
-      fetch('http://localhost:9090', {
-         //credentials: 'same-origin',
+      fetch('http://localhost:8080', {
          method: 'POST',
-         header: {
+         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
          },
-         body: JSON.stringify(user)
-      }).then(res => {
-         console.log('res' + res);
-      });
+         body: JSON.stringify(response)
+      })
+         .then(res => {
+            console.log(res);
+         })
+         .catch(err => {
+            // 에러코드 -1 회원가입
+         });
    }
 };
 

@@ -9,7 +9,6 @@ const HeaderNav = ({ onClickHandle }) => {
       <Fragment>
          <div className="HeaderNav">
             <div className="NavList">
-               <Link to="/Admin">admin</Link>
                <Link to="/editor">editor</Link>
                <Link to="/template">template</Link>
                <Link to="/community">community</Link>

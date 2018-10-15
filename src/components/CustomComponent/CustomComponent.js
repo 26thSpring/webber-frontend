@@ -1,9 +1,9 @@
 import React from 'react';
 import './CustomComponent.scss';
 
-const CustomComponent = ({ what }) => {
+const CustomComponent = ({ what, id }) => {
    const TagName = what;
-   return <TagName>{`<${TagName} />`}</TagName>;
+   return <TagName id={id}>{`<${TagName} />`}</TagName>;
 };
 
 export default CustomComponent;
