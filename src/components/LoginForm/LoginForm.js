@@ -10,7 +10,11 @@ import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 const responseGoogle = response => {
-   console.log('response' + response);
+   console.log(response);
+   const { googleId, accessToken } = response;
+   const { email } = response.profileObj;
+
+   const user = { googleId, accessToken, email };
    if (response.accessToken) {
       fetch('http://localhost:9090', {
          //credentials: 'same-origin',
@@ -19,7 +23,7 @@ const responseGoogle = response => {
             Accept: 'application/json',
             'Content-Type': 'application/json'
          },
-         body: JSON.stringify(response)
+         body: JSON.stringify(user)
       }).then(res => {
          console.log('res' + res);
       });
