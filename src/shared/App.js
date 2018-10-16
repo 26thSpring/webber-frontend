@@ -6,7 +6,7 @@ import { HeaderBack } from 'components/HeaderBack';
 import { Header } from 'components/Header';
 import { EditorHeader } from 'components/EditorHeader';
 import { Main } from 'components/Main';
-import ScrollUpButton from 'react-scroll-up-button';
+import { TinyButton as ScrollUpButton } from 'react-scroll-up-button';
 
 class App extends Component {
    componentDidUpdate() {
@@ -15,8 +15,12 @@ class App extends Component {
    render() {
       return (
          <div className="App">
-            <HeaderBack />
             <Switch>
+               <Route path="/postwriter" component={null} />
+               <HeaderBack />
+            </Switch>
+            <Switch>
+               <Route path="/postwriter" component={null} />
                <Route path="/editor" component={EditorHeader} />
                <Header />
             </Switch>
@@ -24,7 +28,16 @@ class App extends Component {
             <div>
                <ScrollUpButton
                   TransitionClassName="ScrollUpButton__Toggled"
-                  style={{ backgroundColor: 'rgba(112,72,232,0.7)' }}
+                  style={{
+                     width: '3.3rem',
+                     height: '3.3rem',
+                     paddingLeft: '0.5rem',
+                     paddingRight: '0.5rem',
+                     paddingTop: '0.3rem',
+                     backgroundColor: '#3b5bdb',
+                     borderRadius: '50%',
+                     fill: 'white'
+                  }}
                />
             </div>
          </div>

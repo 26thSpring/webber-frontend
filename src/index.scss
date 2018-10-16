@@ -31,3 +31,15 @@ button {
   background-color: inherit;
   font-family: "Sqoopa Han Sans";
 }
+
+input {
+  font-family: "Sqoopa Han Sans";
+
+  &[type="text"] {
+    border: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

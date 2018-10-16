@@ -1,0 +1,45 @@
+@import "utils";
+
+.PostWriterHeader {
+  flex: 0 0 3.7rem;
+  display: flex;
+  align-items: center;
+  background-color: $oc-gray-9;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  color: white;
+}
+.PostWriterHeader_btn_back {
+  padding-top: 0.2rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.PostWriterHeader_title {
+  flex: 1 0 0;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  padding-bottom: 0.2rem;
+  background-color: inherit;
+  font-size: 1.5rem;
+  color: white;
+}
+.PostWriterHeader_btns {
+  flex: 0 0 15rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.PostWriterHeader_btn_submit {
+  font-weight: 400;
+  background-color: $oc-violet-7;
+  padding: 0.35rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background-color: $oc-violet-5;
+    cursor: pointer;
+  }
+}

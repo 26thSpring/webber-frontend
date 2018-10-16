@@ -1,0 +1,14 @@
+@import "utils";
+
+.RegisterTemplate {
+  flex: 1 0 0;
+  background-color: $oc-gray-1;
+}
+.RegisterSection {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
+}
