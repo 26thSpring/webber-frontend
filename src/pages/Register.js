@@ -2,7 +2,7 @@ import React from 'react';
 import './Register.scss';
 import { RegisterForm } from 'components/RegisterForm';
 
-const Register = () => {
+const Register = ({location}) => {
    return (
       <div className="RegisterTemplate">
          <div className="RegisterSection">

@@ -2,13 +2,24 @@ import React from 'react';
 import './RegisterForm.scss';
 import { MdArrowForward } from 'react-icons/md';
 import { IconContext } from 'react-icons';
+import { createBrowserHistory } from 'history';
 
 const RegisterForm = () => {
+   const handleRedirect = () => {
+      console.log('클릭!');
+      const browserHistory = createBrowserHistory();
+      console.log(browserHistory);
+      browserHistory.push('/login', 'hihi');
+      browserHistory.go(0);
+   };
    return (
       <div className="RegisterForm">
          <form action="">
             <div className="RegisterForm_header">
-               <div className="RegisterForm_header_title">
+               <div
+                  className="RegisterForm_header_title"
+                  onClick={handleRedirect}
+               >
                   webber&nbsp;
                   <span> / 회원가입</span>
                </div>

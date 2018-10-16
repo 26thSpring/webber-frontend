@@ -8,6 +8,7 @@ import { GoogleLogin } from 'react-google-login';
 //import { GoogleLogout } from 'react-google-login';
 //import FacebookLogin from 'react-facebook-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import { createBrowserHistory } from 'history';
 
 const responseGoogle = response => {
    console.log(response);
@@ -29,6 +30,9 @@ const responseGoogle = response => {
          })
          .catch(err => {
             // 에러코드 -1 회원가입
+            const browserHistory = createBrowserHistory();
+            browserHistory.push('/register', err);
+            browserHistory.go(0);
          });
    }
 };
