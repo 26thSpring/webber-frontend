@@ -17,6 +17,7 @@ const PostWriterHeader = () => {
          <input
             type="text"
             className="PostWriterHeader_title"
+            name="title"
             placeholder="제목을 입력하세요."
          />
          <div className="PostWriterHeader_btns">

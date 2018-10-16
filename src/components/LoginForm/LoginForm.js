@@ -12,6 +12,7 @@ import { createBrowserHistory } from 'history';
 
 const responseGoogle = response => {
    console.log(response);
+
    const { googleId, accessToken } = response;
    const { email } = response.profileObj;
 

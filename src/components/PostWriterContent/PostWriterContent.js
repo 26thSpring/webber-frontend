@@ -4,7 +4,11 @@ import './PostWriterContent.scss';
 const PostWriterContent = () => {
    return (
       <div className="PostWriterContent">
-         <div>1</div>
+         <textarea
+            className="PostWriterContent_writer"
+            name="content"
+            placeholder="당신의 이야기를 적어주세요."
+         />
       </div>
    );
 };
