@@ -9,9 +9,6 @@ import { Main } from 'components/Main';
 import { TinyButton as ScrollUpButton } from 'react-scroll-up-button';
 
 class App extends Component {
-   componentDidMount() {
-      fetch('http://localhost:8080').then(res => console.log(res));
-   }
    componentDidUpdate() {
       window.scrollTo(0, 0);
    }
