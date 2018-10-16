@@ -4,7 +4,7 @@ import { MdArrowForward } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 import { createBrowserHistory } from 'history';
 
-const RegisterForm = () => {
+const RegisterForm = ({ user }) => {
    const handleRedirect = () => {
       console.log('클릭!');
       const browserHistory = createBrowserHistory();
@@ -12,9 +12,10 @@ const RegisterForm = () => {
       browserHistory.push('/login', 'hihi');
       browserHistory.go(0);
    };
+   console.log(user);
    return (
       <div className="RegisterForm">
-         <form action="">
+         <form action="http://localhost:9090/api/auth/register" method="POST">
             <div className="RegisterForm_header">
                <div
                   className="RegisterForm_header_title"
@@ -33,19 +34,44 @@ const RegisterForm = () => {
                      이메일&nbsp;
                      <span>*</span>
                   </div>
-                  <input type="text" disabled />
+                  <input
+                     type="text"
+                     name="email"
+                     value={user && user.email}
+                     readOnly
+                  />
                </div>
                <div className="RegisterForm_body_nickname register_input_form">
                   <div>
                      아이디&nbsp;
                      <span>*</span>
                   </div>
-                  <input type="text" placeholder="아이디를 입력하세요." />
+                  <input
+                     name="nickname"
+                     type="text"
+                     placeholder="아이디를 입력하세요."
+                  />
                </div>
                <div className="RegisterForm_body_introduce register_input_form">
                   <div>한 줄 소개</div>
-                  <input type="text" placeholder="당신을 표현해 보세요." />
+                  <input
+                     name="intro"
+                     type="text"
+                     placeholder="당신을 표현해 보세요."
+                  />
                </div>
+               <input type="hidden" name="type" value={user && user.type} />
+               <input type="hidden" name="id" value={user && user.id} />
+               <input
+                  type="hidden"
+                  name="accessToken"
+                  value={user && user.accessToken}
+               />
+               <input
+                  type="hidden"
+                  name="thumbnail"
+                  value={user && user.thumbnail}
+               />
             </div>
             <div className="RegisterForm_footer">
                <label htmlFor="register_submit">

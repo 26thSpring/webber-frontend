@@ -2,11 +2,12 @@ import React from 'react';
 import './Register.scss';
 import { RegisterForm } from 'components/RegisterForm';
 
-const Register = ({location}) => {
+const Register = ({ location }) => {
+   const user = location.state;
    return (
       <div className="RegisterTemplate">
          <div className="RegisterSection">
-            <RegisterForm />
+            <RegisterForm user={user} />
          </div>
       </div>
    );
