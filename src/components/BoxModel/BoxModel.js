@@ -3,7 +3,6 @@ import './BoxModel.scss';
 
 const componentDrag = e => {
    e.dataTransfer.setData('component', { type: 'boxModel', tag: e.target.id });
-   console.log(e.target.id);
 };
 
 const BoxModel = () => {

@@ -1,10 +1,15 @@
 import React from 'react';
 import './PostWriterPreview.scss';
 
-const PostWriterPreview = () => {
+const PostWriterPreview = ({ preview }) => {
+   const { title, content } = preview.toJS();
    return (
       <div className="PostWriterPreview">
-         <div>1</div>
+         <div className="PostWriterPreview_title">{title}</div>
+         <div
+            className="PostWriterPreview_content"
+            dangerouslySetInnerHTML={{ __html: content }}
+         />
       </div>
    );
 };

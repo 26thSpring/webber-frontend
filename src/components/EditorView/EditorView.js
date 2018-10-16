@@ -19,8 +19,9 @@ const allowDrop = e => {
 const componentDrop = e => {
    console.log(e.target.offsetWidth);
    e.preventDefault();
-   let what = e.dataTransfer.getData('text');
+   const what = e.dataTransfer.getData('component');
    let component;
+   console.log(what.id);
    if (what === 'div') {
       component = document.createElement('div');
       component.style.width = defaultStyle.width;

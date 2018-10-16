@@ -1,0 +1,23 @@
+@import "utils";
+
+.PostWriterPreview {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.PostWriterPreview_title {
+  font-size: 3rem;
+  font-weight: 700;
+  padding-left: 0.175rem;
+  padding-bottom: 0.875rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.PostWriterPreview_content {
+  font-size: 1.4rem;
+  font-weight: 300;
+  padding-bottom: 0.3rem;
+  padding-left: 0.175rem;
+  margin-right: 0.875rem;
+}
