@@ -3,7 +3,7 @@ import './LoginForm.scss';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { FaGoogle, FaFacebookSquare } from 'react-icons/fa';
-import Naver_logo from 'static/images/naver_icon.svg';
+import Naver_logo from 'static/images/naver_white.svg';
 import { GoogleLogin } from 'react-google-login';
 //import { GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
@@ -126,7 +126,7 @@ class LoginForm extends Component {
                   <IconContext.Provider value={{ size: '30' }}>
                      <FaGoogle className="LoginForm_logo" />
                   </IconContext.Provider>
-                  <div className="LoginForm_name">google</div>
+                  <div className="LoginForm_name">Google</div>
                </GoogleLogin>
             </div>
             <div>
@@ -144,7 +144,7 @@ class LoginForm extends Component {
                         <IconContext.Provider value={{ size: '35' }}>
                            <FaFacebookSquare className="LoginForm_logo" />
                         </IconContext.Provider>
-                        <div className="LoginForm_name">페이스북</div>
+                        <div className="LoginForm_name">Facebook</div>
                      </div>
                   )}
                />
@@ -154,7 +154,7 @@ class LoginForm extends Component {
                <div className="LoginForm_logo_naver">
                   <img src={Naver_logo} alt="Naver" />
                </div>
-               <div className="LoginForm_name">naver</div>
+               <div className="LoginForm_name">Naver</div>
             </div>
 
             <div className="LoginForm_bottom">

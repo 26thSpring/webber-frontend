@@ -25,7 +25,7 @@
 .LoginForm_logo_naver {
   display: flex;
   width: 4rem;
-  font-weight: bolder;
+  //font-weight: bolder;
   //font-size: 2rem;
   justify-content: center;
   border-right: 0.02rem solid #eeeeee;
@@ -79,17 +79,17 @@
   border-radius: 2px;
   width: 20rem;
   height: 4rem;
-  background: black;
-  border: 1px solid rgb(68, 68, 68);
+  background: #01bd38;
+  border: 1px solid rgb(63, 210, 107);
   color: white;
   font-weight: 600;
   font-size: 1.6rem;
 }
 .LoginForm_naver:hover {
-  background: rgb(68, 68, 68);
+  background: rgb(63, 210, 107);
 }
 .LoginForm_naver:active {
-  background: rgb(68, 68, 68);
+  background: rgb(63, 210, 107);
 }
 .LoginForm_bottom {
   border-top: 0.1rem solid #eeeeee;
