@@ -109,5 +109,5 @@
   "devDependencies": {
     "cross-env": "^5.2.0"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:9090"
 }

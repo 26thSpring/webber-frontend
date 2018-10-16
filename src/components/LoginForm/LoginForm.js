@@ -6,7 +6,6 @@ import { FaGoogle, FaFacebookSquare } from 'react-icons/fa';
 import Naver_logo from 'static/images/naver_icon.svg';
 import { GoogleLogin } from 'react-google-login';
 //import { GoogleLogout } from 'react-google-login';
-//import FacebookLogin from 'react-facebook-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createBrowserHistory } from 'history';
 
@@ -33,6 +32,51 @@ const responseGoogle = response => {
       })
          .then(res => {
             console.log(res);
+
+            if (res.status === 400) {
+               console.log(res.body);
+               const browserHistory = createBrowserHistory();
+               browserHistory.push('/register', user);
+               browserHistory.go(0);
+            }
+         })
+         .catch(err => {
+            // 에러코드 -1 회원가입
+            console.log(err.body);
+            if (err.code === -1) {
+               const browserHistory = createBrowserHistory();
+               browserHistory.push('/register', user);
+               browserHistory.go(0);
+            }
+         });
+   }
+};
+
+const responseFacebook = response => {
+   console.log('facebook' + JSON.stringify(response.email));
+   const { id, accessToken } = response;
+   const { email } = response;
+   //const { picture } = response.data;
+
+   const user = {
+      type: 'F',
+      id: id,
+      accessToken,
+      email,
+      thumbnail: 'https://metadisplay.de/wp-content/uploads/2017/01/user_m.png'
+   };
+   console.log('user' + JSON.stringify(user));
+   if (response.accessToken) {
+      fetch('http://localhost:9090/api/auth/login', {
+         method: 'POST',
+         headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(user)
+      })
+         .then(res => {
+            //console.log(res);
 
             if (res.status === 400) {
                console.log(res.body);
@@ -90,7 +134,7 @@ class LoginForm extends Component {
                   autoLoad={false}
                   fields="name,email,picture"
                   onClick={null}
-                  callback={null}
+                  callback={responseFacebook}
                   render={renderProps => (
                      <div
                         className="LoginForm_facebook"
