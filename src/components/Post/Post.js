@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { GoComment, GoClock } from 'react-icons/go';
 
-const Post = () => {
+const Post = ({ data }) => {
+   console.log(data);
+   const { nickname, title, regdate, views, replyNum } = data;
+
    return (
       <Link to="/PostView">
          <div className="Post">
@@ -15,8 +18,8 @@ const Post = () => {
                />
             </div>
             <div className="Post_contents">
-               <div className="Post_nickname">NickName</div>
-               <div className="Post_title">Post.js</div>
+               <div className="Post_nickname">{nickname}</div>
+               <div className="Post_title">{title}</div>
             </div>
             <div className="Post_info">
                <div className="Post_reply">
@@ -25,7 +28,7 @@ const Post = () => {
                         <GoComment />
                      </IconContext.Provider>
                   </div>
-                  <div className="Post_reply_value">10 replys</div>
+                  <div className="Post_reply_value">{replyNum} replys</div>
                </div>
                <div className="Post_regDate">
                   <div className="Post_regDate_icon">
@@ -33,9 +36,9 @@ const Post = () => {
                         <GoClock />
                      </IconContext.Provider>
                   </div>
-                  <div className="Post_regDate_value">10 mins</div>
+                  <div className="Post_regDate_value">{regdate}</div>
                </div>
-               <div className="Post_views">10 views</div>
+               <div className="Post_views">{views} views</div>
             </div>
          </div>
       </Link>

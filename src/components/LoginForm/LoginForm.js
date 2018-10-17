@@ -22,6 +22,8 @@ const responseGoogle = response => {
       email,
       thumbnail: imageUrl
    };
+
+   console.log(user);
    if (response.accessToken) {
       fetch('http://localhost:9090/api/auth/login', {
          method: 'POST',

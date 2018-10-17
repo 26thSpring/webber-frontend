@@ -35,10 +35,11 @@ class PostWriterContainer extends Component {
       const data = new FormData(form);
       fetch('http://localhost:9090/api/community', {
          method: 'POST',
-         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-         },
          body: data
+      }).then(res => {
+         if (res.status === 200) {
+            window.location.href = '/community';
+         }
       });
    };
 
