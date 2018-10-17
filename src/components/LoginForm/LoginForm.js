@@ -8,6 +8,9 @@ import { GoogleLogin } from 'react-google-login';
 //import { GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createBrowserHistory } from 'history';
+import Cookie from 'universal-cookie';
+import { request } from 'https';
+//import { request, get } from 'https';
 
 const responseGoogle = response => {
    console.log(response);
@@ -24,6 +27,7 @@ const responseGoogle = response => {
    };
    if (response.accessToken) {
       fetch('http://localhost:9090/api/auth/login', {
+         credentials: 'same-origin',
          method: 'POST',
          headers: {
             Accept: 'application/json',
@@ -33,7 +37,10 @@ const responseGoogle = response => {
       })
          .then(res => {
             console.log(res);
-
+            if (res.status === 200) {
+               alert(res.headers);
+               console.log(res.headers);
+            }
             if (res.status === 400) {
                console.log(res.body);
                const browserHistory = createBrowserHistory();
@@ -54,7 +61,7 @@ const responseGoogle = response => {
 };
 
 const responseFacebook = response => {
-   console.log('facebook' + JSON.stringify(response.email));
+   console.log(response);
    const { id, accessToken } = response;
    const { email } = response;
    //const { picture } = response.data;
@@ -66,9 +73,10 @@ const responseFacebook = response => {
       email,
       thumbnail: 'https://metadisplay.de/wp-content/uploads/2017/01/user_m.png'
    };
-   console.log('user' + JSON.stringify(user));
+   console.log(user);
    if (response.accessToken) {
       fetch('http://localhost:9090/api/auth/login', {
+         credentials: 'same-origin',
          method: 'POST',
          headers: {
             Accept: 'application/json',
@@ -77,8 +85,8 @@ const responseFacebook = response => {
          body: JSON.stringify(user)
       })
          .then(res => {
+            console.log(res.headers.entries);
             //console.log(res);
-
             if (res.status === 400) {
                console.log(res.body);
                const browserHistory = createBrowserHistory();
@@ -97,8 +105,9 @@ const responseFacebook = response => {
          });
    }
 };
-
 class LoginForm extends Component {
+<<<<<<< HEAD
+=======
    linkToNaverLogin() {
       console.log('dddd');
       window.open(
@@ -138,6 +147,7 @@ class LoginForm extends Component {
       });
    }
 
+>>>>>>> 680f1e8d9391612cbc53961acfd596014d6f8fb7
    render() {
       return (
          <div className="LoginForm">
@@ -178,8 +188,8 @@ class LoginForm extends Component {
             </div>
             <div id="naverIdLogin" className="LoginForm_naver" onClick={null}>
                {/* <div className="LoginForm_logo_naver">N</div> */}
-               <div className="LoginForm_logo_naver">
-                  <img src={Naver_logo} alt="Naver" />
+               <div className="LoginForm_logo_naver" id="naver_id_login">
+                  {/* <img src={Naver_logo} alt="Naver" /> */}
                </div>
                <div className="LoginForm_name">Naver</div>
             </div>

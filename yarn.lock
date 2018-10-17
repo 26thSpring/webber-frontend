@@ -2,6 +2,23 @@
 # yarn lockfile v1
 
 
+"@types/cookie@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.3.1.tgz#720a756ea8e760a258708b52441bd341f1ef4296"
+  integrity sha512-64Uv+8bTRVZHlbB8eXQgMP9HguxPgnOOIYrQpwHWrtLDrtcG/lILKhUl7bV65NSOIJ9dXGYD7skQFXzhL8tk1A==
+
+"@types/hoist-non-react-statics@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.0.1.tgz#dde7c53101912dae8f45a1807f9857a59ddf3919"
+  integrity sha512-3wTz66vV+WatOAjMST+hKCmo01KYPFgnsu+QeLcn0FuwPCoymX6aj1a4RvFCdVsfh2m0hfTPhE/zTv4M28ho1Q==
+  dependencies:
+    "@types/react" "*"
+
+"@types/object-assign@^4.0.30":
+  version "4.0.30"
+  resolved "https://registry.yarnpkg.com/@types/object-assign/-/object-assign-4.0.30.tgz#8949371d5a99f4381ee0f1df0a9b7a187e07e652"
+  integrity sha1-iUk3HVqZ9Dge4PHfCpt6GH4H5lI=
+
 "@types/prop-types@*":
   version "15.5.6"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
@@ -1924,7 +1941,7 @@ cookie-signature@1.0.6:
   resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
   integrity sha1-4wOogrNCzD7oylE6eZmXNNqzriw=
 
-cookie@0.3.1:
+cookie@0.3.1, cookie@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
   integrity sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s=
@@ -3734,6 +3751,13 @@ hoist-non-react-statics@^2.5.0:
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
   integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
 
+hoist-non-react-statics@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.0.1.tgz#fba3e7df0210eb9447757ca1a7cb607162f0a364"
+  integrity sha512-1kXwPsOi0OGQIZNVMPvgWJ9tSnGMiMfJdihqEzrPEXlHOBh9AAHXX/QYmAJTXztnz/K+PQ8ryCb4eGaN6HlGbQ==
+  dependencies:
+    react-is "^16.3.2"
+
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -3942,6 +3966,7 @@ ignore@^3.3.3:
 immutable@^3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
+  integrity sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
 
 import-lazy@^2.1.0:
   version "2.1.0"
@@ -4723,6 +4748,11 @@ jest@20.0.4:
   integrity sha1-PdJgwpidba1nix6cxNkZRPbWAqw=
   dependencies:
     jest-cli "^20.0.4"
+
+jquery@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+  integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.4.9"
@@ -6735,6 +6765,23 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-cookie@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.0.4.tgz#ae57db00cb5160675ce2fe06ab0962c728a6630b"
+  integrity sha512-WNf1LifcjRQfg/QEDYQkey78XNJ46/k+lhoKrTK1Iv1jiqInl5jmjRBnEqDJ32HhgeL0iJAsJrEC+o+LkJ/O9Q==
+  dependencies:
+    "@types/hoist-non-react-statics" "^3.0.1"
+    hoist-non-react-statics "^3.0.0"
+    universal-cookie "^3.0.4"
+
+react-cookies@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-cookies/-/react-cookies-0.1.0.tgz#6bb883f2d1a397f138a4110300b46fe25df8f1a9"
+  integrity sha1-a7iD8tGjl/E4pBEDALRv4l348ak=
+  dependencies:
+    cookie "^0.3.1"
+    object-assign "^4.1.1"
+
 react-dev-utils@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-5.0.2.tgz#7bb68d2c4f6ffe7ed1184c5b0124fcad692774d2"
@@ -6803,6 +6850,19 @@ react-icons@^3.1.0:
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.1.0.tgz#004bc8d8b64a5480cdebd86ccb72ba5930b0e434"
   integrity sha512-kz0Dg1pEY+Ln0zcHYmBfx75pWz4U1kvCGku+QdwZkaIrCK+UQhPd69oLwik0KW5KpNhWHed0aMtAx6DnBhfIxQ==
 
+react-is@^16.3.2:
+  version "16.5.2"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
+  integrity sha512-hSl7E6l25GTjNEZATqZIuWOgSnpXb3kD0DVCujmg46K5zLxsbiKaaT6VO9slkSBDPZfYs30lwfJwbOFOnoEnKQ==
+
+react-kakao-login@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-kakao-login/-/react-kakao-login-1.1.0.tgz#4cfbd85f9fa7f5ed04d870e69d0c6f0bb9ba792c"
+  integrity sha512-0Wpc6XjyFxVns76xfq5CoQls5juaG2+JRmk+GOTjpU1JPc9vpgQE8Dd8mQrIXosvE2oj4NosmuRMosFAbv5NKA==
+  dependencies:
+    prop-types "^15.6.0"
+    react "^16.5.1"
+
 react-redux@^5.0.7:
   version "5.0.7"
   resolved "http://registry.npmjs.org/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
@@ -6849,7 +6909,7 @@ react-scroll-up-button@^1.6.4:
     prop-types "^15.6.2"
     tween-functions "^1.2.0"
 
-react@^16.5.2:
+react@^16.5.1, react@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.5.2.tgz#19f6b444ed139baa45609eee6dc3d318b3895d42"
   integrity sha512-FDCSVd3DjVTmbEAjUNX6FgfAmQ+ypJfHUsqUJOYNCBUp1h8lqmtC+0mXJ+JjsWx4KAVTkk1vKd1hLQPvEviSuw==
@@ -7491,6 +7551,11 @@ setprototypeof@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.0.tgz#d0bd85536887b6fe7c0d818cb962d9d91c54e656"
   integrity sha512-BvE/TwpZX4FXExxOxZyRGQQv651MSwmWKZGqvmPcRIjDqWub67kTKuIMx43cZZrS/cBBzwBcNDWoFxt2XEFIpQ==
+
+sfcookies@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/sfcookies/-/sfcookies-1.0.2.tgz#e2df7b4d4c9db15965bbab9a9ce72829daff5bb9"
+  integrity sha1-4t97TUydsVllu6uanOcoKdr/W7k=
 
 sha.js@^2.4.0, sha.js@^2.4.8:
   version "2.4.11"
@@ -8259,6 +8324,16 @@ unique-string@^1.0.0:
   integrity sha1-nhBXzKhRq7kzmPizOuGHuZyuwRo=
   dependencies:
     crypto-random-string "^1.0.0"
+
+universal-cookie@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.0.4.tgz#22c1a0dca6bb9e72da20d9e331d9d8f93d95e9dc"
+  integrity sha512-3rhx6RAIuRmCWJttnbgzMrp2TbHhUmgQ2GrpY/US03Siv5T28iXr2qYw1m3YqmluBxEyrvZaloVemkLSId+Oyg==
+  dependencies:
+    "@types/cookie" "^0.3.1"
+    "@types/object-assign" "^4.0.30"
+    cookie "^0.3.1"
+    object-assign "^4.1.0"
 
 universalify@^0.1.0:
   version "0.1.2"

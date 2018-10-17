@@ -9,6 +9,7 @@ import { Main } from 'components/Main';
 import { NaverCallback } from 'pages';
 import { TinyButton as ScrollUpButton } from 'react-scroll-up-button';
 
+///////////
 class App extends Component {
    componentDidUpdate() {
       window.scrollTo(0, 0);
