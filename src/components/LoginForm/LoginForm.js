@@ -8,7 +8,8 @@ import { GoogleLogin } from 'react-google-login';
 //import { GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createBrowserHistory } from 'history';
-
+//import { request, get } from 'https';
+/////////////////////////////////////
 const responseGoogle = response => {
    console.log(response);
    const { googleId, accessToken } = response;
@@ -63,11 +64,7 @@ const responseFacebook = response => {
       id: id,
       accessToken,
       email,
-<<<<<<< HEAD
-      thumbnail: 'thumbnail'
-=======
       thumbnail: 'https://metadisplay.de/wp-content/uploads/2017/01/user_m.png'
->>>>>>> 28c2be7d0affc080fe0a93b52600d6704e11c52e
    };
    console.log('user' + JSON.stringify(user));
    if (response.accessToken) {
@@ -102,6 +99,13 @@ const responseFacebook = response => {
 };
 
 class LoginForm extends Component {
+   state = {
+      userInfo: {
+         nickname: null,
+         thumbnail: null,
+         auth: null
+      }
+   };
    linkToNaverLogin() {
       window.open(
          'http://localhost:9090/login',
@@ -112,7 +116,6 @@ class LoginForm extends Component {
    componentwillUpdate() {
       window.scrollTo(0, 0);
    }
-
    render() {
       return (
          <div className="LoginForm">
@@ -146,7 +149,7 @@ class LoginForm extends Component {
                         <IconContext.Provider value={{ size: '35' }}>
                            <FaFacebookSquare className="LoginForm_logo" />
                         </IconContext.Provider>
-                        <div className="LoginForm_name">페이스북</div>
+                        <div className="LoginForm_name">facebook</div>
                      </div>
                   )}
                />
