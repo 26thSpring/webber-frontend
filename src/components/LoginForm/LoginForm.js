@@ -39,8 +39,6 @@ const responseGoogle = response => {
       })
          .then(res => {
             console.log(res);
-            var cookie = new Cookie();
-            cookie.get('')
             if (res.status === 200) {
                alert(res.headers);
                console.log(res.headers);
@@ -89,7 +87,24 @@ const responseFacebook = response => {
          body: JSON.stringify(user)
       })
          .then(res => {
-            console.log(res.headers.entries);
+            if (res.status === 200) {
+               res.json().then(data => {
+                  localStorage.setItem('webberUser', JSON.stringify(data));
+                  console.log(
+                     JSON.parse(localStorage.getItem('webberUser')).result
+                        .result
+                  );
+
+                  window.$.cookie('accessToken', 'sdfsdfsdf');
+                  //alert(JSON.parse(localStorage.getItem('webberUser')).email);
+               });
+            }
+            // console.log(
+            //    res.json().then(data => {
+            //       console.log(data);
+            //    })
+            // );
+            //console.log(res.headers.get('auth'));
             //console.log(res);
             if (res.status === 400) {
                console.log(res.body);
