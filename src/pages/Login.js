@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.scss';
 import { LoginForm } from 'components/LoginForm';
+import AuthContainer from 'containers/AuthContainer';
 import { PageHeader } from 'components/PageHeader';
 
 const Login = () => {

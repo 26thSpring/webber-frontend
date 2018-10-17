@@ -8,14 +8,19 @@ import PostWriterContainer from 'containers/PostWriterContainer';
 const PostWriter = () => {
    return (
       <div className="PostWriterTemplate">
-         <div className="PostWriterSection">
+         <form
+            id="postWriterForm"
+            action="http://localhost:9090/api/community"
+            method="POST"
+            className="PostWriterSection"
+         >
             <PostWriterContainer />
             {/* <PostWriterHeader />
             <div className="PostWriterBody">
                <PostWriterContent />
                <PostWriterPreview />
             </div> */}
-         </div>
+         </form>
       </div>
    );
 };
