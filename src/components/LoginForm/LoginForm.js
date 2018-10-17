@@ -37,6 +37,8 @@ const responseGoogle = response => {
       })
          .then(res => {
             console.log(res);
+            var cookie = new Cookie();
+            cookie.get('')
             if (res.status === 200) {
                alert(res.headers);
                console.log(res.headers);
