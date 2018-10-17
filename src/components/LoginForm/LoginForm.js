@@ -106,6 +106,48 @@ const responseFacebook = response => {
    }
 };
 class LoginForm extends Component {
+<<<<<<< HEAD
+=======
+   linkToNaverLogin() {
+      console.log('dddd');
+      window.open(
+         'http://localhost:9090/login',
+         'naverLogin',
+         'width:100px, height:300px'
+      );
+   }
+   componentwillUpdate() {
+      window.scrollTo(0, 0);
+   }
+
+   componentDidMount() {
+      const naverLogin = new window.naver.LoginWithNaverId({
+         clientId: 'Dw8kgklN2EzkVFun66kZ',
+         callbackUrl: 'http://localhost:3000/auth/naver',
+         isPopup: true /* 팝업을 통한 연동처리 여부 */,
+         loginButton: {
+            color: 'green',
+            type: 3,
+            height: 60
+         } /* 로그인 버튼의 타입을 지정 */
+      });
+      /* 설정정보를 초기화하고 연동을 준비 */
+      naverLogin.init();
+
+      naverLogin.getLoginStatus(function(status) {
+         if (status) {
+            var email = naverLogin.user.getEmail();
+            var profileImage = naverLogin.user.getProfileImage();
+
+            console.log('이메일: ' + email);
+            console.log('프로필사진: ' + profileImage);
+         } else {
+            console.log('AccessToken이 올바르지 않습니다.');
+         }
+      });
+   }
+
+>>>>>>> 680f1e8d9391612cbc53961acfd596014d6f8fb7
    render() {
       return (
          <div className="LoginForm">
@@ -144,7 +186,7 @@ class LoginForm extends Component {
                   )}
                />
             </div>
-            <div className="LoginForm_naver" onClick={this.linkToNaverLogin}>
+            <div id="naverIdLogin" className="LoginForm_naver" onClick={null}>
                {/* <div className="LoginForm_logo_naver">N</div> */}
                <div className="LoginForm_logo_naver" id="naver_id_login">
                   {/* <img src={Naver_logo} alt="Naver" /> */}

@@ -1,5 +1,6 @@
 import withSplitting from 'lib/withSplitting';
 
+export const NaverCallback = withSplitting(() => import('./NaverCallback'));
 export const Intro = withSplitting(() => import('./Intro'));
 export const Login = withSplitting(() => import('./Login'));
 export const Register = withSplitting(() => import('./Register'));

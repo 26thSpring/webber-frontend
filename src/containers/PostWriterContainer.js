@@ -29,14 +29,34 @@ class PostWriterContainer extends Component {
       PostWriterActions.init();
    };
 
+   handleSubmit = e => {
+      const form = document.querySelector('#postWriterForm');
+      console.log(form);
+      const data = new FormData(form);
+      fetch('http://localhost:9090/api/community', {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+         },
+         body: data
+      });
+   };
+
    render() {
-      const { handleTitleChange, handleContentChange, handleInitState } = this;
+      const {
+         handleTitleChange,
+         handleContentChange,
+         handleInitState,
+         handleSubmit
+      } = this;
       const { preview } = this.props;
       return (
          <Fragment>
+            <input type="hidden" name="nickname" value="webber" />
             <PostWriterHeader
                onTitleChange={handleTitleChange}
                onOutPage={handleInitState}
+               onSubmit={handleSubmit}
             />
             <div className="PostWriterBody">
                <PostWriterContent onContentChange={handleContentChange} />

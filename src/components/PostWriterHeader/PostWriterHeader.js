@@ -4,7 +4,7 @@ import { MdArrowBack } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
 
-const PostWriterHeader = ({ onTitleChange, onOutPage }) => {
+const PostWriterHeader = ({ onTitleChange, onOutPage, onSubmit }) => {
    return (
       <div className="PostWriterHeader">
          <Link
@@ -26,7 +26,12 @@ const PostWriterHeader = ({ onTitleChange, onOutPage }) => {
             onInput={onTitleChange.bind(this)}
          />
          <div className="PostWriterHeader_btns">
-            <div className="PostWriterHeader_btn_submit">작성하기</div>
+            <div
+               onClick={onSubmit.bind(this)}
+               className="PostWriterHeader_btn_submit"
+            >
+               작성하기
+            </div>
          </div>
       </div>
    );

@@ -2,6 +2,7 @@
   "extends": "react-app",
   "rules": {
     "quotes": ["error", "single", { "avoidEscape": true }],
-    "indent": ["error", 3]
+    "indent": ["error", 3],
+    "max-len": "off"
   }
 }
