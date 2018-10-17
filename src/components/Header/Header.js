@@ -36,9 +36,6 @@ const MenuDiv = ({ Active, onClickHandle }) => {
          <Link to="/login" onClick={onClickHandle.bind(this)}>
             login
          </Link>
-         <Link to="/Admin" onClick={onClickHandle.bind(this)}>
-            Admin
-         </Link>
       </div>
    );
 };

@@ -1,2 +1,24 @@
+@import "utils";
+
 .CommunityBody {
+  padding-top: 1.875rem;
+}
+.CommunityBody_link_postwriter {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: white;
+  background-color: $oc-violet-7;
+  padding: 0.3rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  //box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    background-color: $oc-violet-5;
+  }
+}
+.CommunityBody_postList {
+  margin-top: 0.875rem;
 }
