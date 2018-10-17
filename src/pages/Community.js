@@ -8,9 +8,7 @@ const Community = () => {
       <div className="CommunityTemplate">
          <PageHeader name="community" />
          <div className="CommunitySection">
-            <div className="CommunityBody">
-               <CommunityBody />
-            </div>
+            <CommunityBody />
          </div>
       </div>
    );

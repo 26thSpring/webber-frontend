@@ -14,11 +14,11 @@ const EditorHeader = () => {
          <div className="EditorHeader_btns">
             <div className="EditorHeader_btn_download">다운로드</div>
             <div className="EditorHeader_btn_save">저장하기</div>
-            <IconContext.Provider
+            {/* <IconContext.Provider
                value={{ size: 27, className: 'EditorHeader_btns_more' }}
             >
                <MdMoreVert />
-            </IconContext.Provider>
+            </IconContext.Provider> */}
          </div>
       </div>
    );

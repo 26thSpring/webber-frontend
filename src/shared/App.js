@@ -6,8 +6,10 @@ import { HeaderBack } from 'components/HeaderBack';
 import { Header } from 'components/Header';
 import { EditorHeader } from 'components/EditorHeader';
 import { Main } from 'components/Main';
+import { NaverCallback } from 'pages';
 import { TinyButton as ScrollUpButton } from 'react-scroll-up-button';
 
+///////////
 class App extends Component {
    componentDidUpdate() {
       window.scrollTo(0, 0);
@@ -15,6 +17,7 @@ class App extends Component {
    render() {
       return (
          <div className="App">
+            <Route path="/auth/naver" component={NaverCallback} />
             <Switch>
                <Route path="/postwriter" component={null} />
                <HeaderBack />

@@ -8,6 +8,9 @@ import { GoogleLogin } from 'react-google-login';
 //import { GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createBrowserHistory } from 'history';
+import Cookie from 'universal-cookie';
+import { request } from 'https';
+//import { request, get } from 'https';
 
 const responseGoogle = response => {
    console.log(response);
@@ -24,6 +27,7 @@ const responseGoogle = response => {
    };
    if (response.accessToken) {
       fetch('http://localhost:9090/api/auth/login', {
+         credentials: 'same-origin',
          method: 'POST',
          headers: {
             Accept: 'application/json',
@@ -33,7 +37,12 @@ const responseGoogle = response => {
       })
          .then(res => {
             console.log(res);
-
+            var cookie = new Cookie();
+            cookie.get('')
+            if (res.status === 200) {
+               alert(res.headers);
+               console.log(res.headers);
+            }
             if (res.status === 400) {
                console.log(res.body);
                const browserHistory = createBrowserHistory();
@@ -54,7 +63,7 @@ const responseGoogle = response => {
 };
 
 const responseFacebook = response => {
-   console.log('facebook' + JSON.stringify(response.email));
+   console.log(response);
    const { id, accessToken } = response;
    const { email } = response;
    //const { picture } = response.data;
@@ -66,9 +75,10 @@ const responseFacebook = response => {
       email,
       thumbnail: 'https://metadisplay.de/wp-content/uploads/2017/01/user_m.png'
    };
-   console.log('user' + JSON.stringify(user));
+   console.log(user);
    if (response.accessToken) {
       fetch('http://localhost:9090/api/auth/login', {
+         credentials: 'same-origin',
          method: 'POST',
          headers: {
             Accept: 'application/json',
@@ -77,8 +87,8 @@ const responseFacebook = response => {
          body: JSON.stringify(user)
       })
          .then(res => {
+            console.log(res.headers.entries);
             //console.log(res);
-
             if (res.status === 400) {
                console.log(res.body);
                const browserHistory = createBrowserHistory();
@@ -97,7 +107,6 @@ const responseFacebook = response => {
          });
    }
 };
-
 class LoginForm extends Component {
    linkToNaverLogin() {
       console.log('dddd');
@@ -111,6 +120,33 @@ class LoginForm extends Component {
       window.scrollTo(0, 0);
    }
 
+   componentDidMount() {
+      const naverLogin = new window.naver.LoginWithNaverId({
+         clientId: 'Dw8kgklN2EzkVFun66kZ',
+         callbackUrl: 'http://localhost:3000/auth/naver',
+         isPopup: true /* 팝업을 통한 연동처리 여부 */,
+         loginButton: {
+            color: 'green',
+            type: 3,
+            height: 60
+         } /* 로그인 버튼의 타입을 지정 */
+      });
+      /* 설정정보를 초기화하고 연동을 준비 */
+      naverLogin.init();
+
+      naverLogin.getLoginStatus(function(status) {
+         if (status) {
+            var email = naverLogin.user.getEmail();
+            var profileImage = naverLogin.user.getProfileImage();
+
+            console.log('이메일: ' + email);
+            console.log('프로필사진: ' + profileImage);
+         } else {
+            console.log('AccessToken이 올바르지 않습니다.');
+         }
+      });
+   }
+
    render() {
       return (
          <div className="LoginForm">
@@ -119,7 +155,7 @@ class LoginForm extends Component {
             <div>
                <GoogleLogin
                   className="LoginForm_google"
-                  clientId="961890564278-7tds7bjmf82km0e491bc2b68tuotjrnt.apps.googleusercontent.com"
+                  clientId="900915114673-p8eng273pmc1tdabkkfciadm7a37cqv0.apps.googleusercontent.com"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                >
@@ -149,10 +185,10 @@ class LoginForm extends Component {
                   )}
                />
             </div>
-            <div className="LoginForm_naver" onClick={this.linkToNaverLogin}>
+            <div id="naverIdLogin" className="LoginForm_naver" onClick={null}>
                {/* <div className="LoginForm_logo_naver">N</div> */}
-               <div className="LoginForm_logo_naver">
-                  <img src={Naver_logo} alt="Naver" />
+               <div className="LoginForm_logo_naver" id="naver_id_login">
+                  {/* <img src={Naver_logo} alt="Naver" /> */}
                </div>
                <div className="LoginForm_name">Naver</div>
             </div>

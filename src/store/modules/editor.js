@@ -1,41 +1,33 @@
+import { createAction, handleActions } from 'redux-actions';
+import { Map, List } from 'immutable';
+
 const MAKE_COMPONENT = 'editor/MAKE_COMPONENT';
 const INSERT_COMPONENT = 'editor/INSERT_COMPONENT';
 const CHANGE_CURRENT = 'editor/CHANGE_CURRENT';
 const CHANGE_STYLES = 'editor/CHANGE_STYLES';
 
-export const makeComponent = what => ({ type: MAKE_COMPONENT, what });
-export const insertComponent = component => ({
-   type: INSERT_COMPONENT,
-   component
-});
-export const changeCurrent = () => ({ type: CHANGE_CURRENT });
-export const changeStyles = styles => ({ type: CHANGE_STYLES, styles });
+export const makeComponent = createAction(MAKE_COMPONENT, what => what);
+export const insertComponent = createAction(
+   INSERT_COMPONENT,
+   component => component
+);
+export const changeCurrent = createAction(CHANGE_CURRENT, text => text);
+export const changeStyles = createAction(CHANGE_STYLES, styles => styles);
 
 const initialState = {
    what: 'div',
-   component: '',
-   styles: {},
+   innerHTML: '',
+   styles: Map({}),
    currentComponent: ''
 };
 
-export default function editor(state = initialState, action) {
-   switch (action.type) {
-   case MAKE_COMPONENT:
-      return {
-         ...state,
-         what: action.what
-      };
-   case INSERT_COMPONENT:
-      return {
-         ...state,
-         component: action.component
-      };
-   case CHANGE_STYLES:
-      return {
-         ...state,
-         styles: action.styles
-      };
-   default:
-      return state;
-   }
-}
+export default handleActions(
+   {
+      [INSERT_COMPONENT]: (state, action) =>
+         state.set('innerHTML', action.payload),
+      [CHANGE_CURRENT]: (state, action) =>
+         state.set('currentComponent', action.payload),
+      [CHANGE_STYLES]: (state, action) => state.set('styles', action.payload)
+   },
+   initialState
+);
