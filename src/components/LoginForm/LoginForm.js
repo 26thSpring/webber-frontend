@@ -106,8 +106,6 @@ const responseFacebook = response => {
    }
 };
 class LoginForm extends Component {
-<<<<<<< HEAD
-=======
    linkToNaverLogin() {
       console.log('dddd');
       window.open(
@@ -147,7 +145,6 @@ class LoginForm extends Component {
       });
    }
 
->>>>>>> 680f1e8d9391612cbc53961acfd596014d6f8fb7
    render() {
       return (
          <div className="LoginForm">
