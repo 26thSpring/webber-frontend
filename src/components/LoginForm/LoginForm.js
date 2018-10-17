@@ -108,8 +108,6 @@ const responseFacebook = response => {
    }
 };
 class LoginForm extends Component {
-<<<<<<< HEAD
-=======
    linkToNaverLogin() {
       console.log('dddd');
       window.open(
@@ -149,7 +147,6 @@ class LoginForm extends Component {
       });
    }
 
->>>>>>> 680f1e8d9391612cbc53961acfd596014d6f8fb7
    render() {
       return (
          <div className="LoginForm">
@@ -158,7 +155,7 @@ class LoginForm extends Component {
             <div>
                <GoogleLogin
                   className="LoginForm_google"
-                  clientId="961890564278-7tds7bjmf82km0e491bc2b68tuotjrnt.apps.googleusercontent.com"
+                  clientId="900915114673-p8eng273pmc1tdabkkfciadm7a37cqv0.apps.googleusercontent.com"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                >
