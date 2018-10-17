@@ -6,7 +6,7 @@ const app = new Koa();
 
 app.use(serve(path.resolve(__dirname, '../build/')));
 app.use(ctx => {
-  ctx.body = 'hello world!';
+   ctx.body = 'hello world!';
 });
 
 app.listen(3001);

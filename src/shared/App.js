@@ -8,6 +8,7 @@ import { EditorHeader } from 'components/EditorHeader';
 import { Main } from 'components/Main';
 import { TinyButton as ScrollUpButton } from 'react-scroll-up-button';
 
+///////////
 class App extends Component {
    componentDidUpdate() {
       window.scrollTo(0, 0);
