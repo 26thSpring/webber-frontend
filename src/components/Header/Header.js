@@ -4,6 +4,11 @@ import { HeaderLogo } from 'components/HeaderLogo';
 import { HeaderNav } from 'components/HeaderNav';
 import './Header.scss';
 
+const getUserThumbnail = () => {
+   return JSON.parse(localStorage.getItem('webberUser')).result.result[0]
+      .thumbnail;
+};
+
 const MenuDiv = ({ Active, onClickHandle }) => {
    let MenuSlide = Active === true ? '0' : '-100%';
    const MenuStyle = {
@@ -33,9 +38,15 @@ const MenuDiv = ({ Active, onClickHandle }) => {
          <Link to="/community" onClick={onClickHandle.bind(this)}>
             community
          </Link>
-         <Link to="/login" onClick={onClickHandle.bind(this)}>
-            login
-         </Link>
+         {localStorage.getItem('webberUser') ? (
+            <Link to="/Profile" onClick={onClickHandle.bind(this)}>
+               <img src={getUserThumbnail()} alt="user" />
+            </Link>
+         ) : (
+            <Link to="/login" onClick={onClickHandle.bind(this)}>
+               login
+            </Link>
+         )}
       </div>
    );
 };
@@ -50,6 +61,7 @@ class Header extends Component {
             Active: !this.state.Active
          });
          //console.log(this.state.Active);
+         console.log(getUserThumbnail());
       };
 
       return (

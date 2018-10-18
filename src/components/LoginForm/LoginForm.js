@@ -40,8 +40,13 @@ const responseGoogle = response => {
          .then(res => {
             console.log(res);
             if (res.status === 200) {
-               alert(res.headers);
-               console.log(res.headers);
+               res.json().then(data => {
+                  localStorage.setItem('webberUser', JSON.stringify(data));
+                  console.log(
+                     JSON.parse(localStorage.getItem('webberUser')).result
+                        .result[0].email
+                  );
+               });
             }
             if (res.status === 400) {
                console.log(res.body);
@@ -95,7 +100,7 @@ const responseFacebook = response => {
                         .result
                   );
 
-                  window.$.cookie('accessToken', 'sdfsdfsdf');
+                  window.$.cookie('accessToken');
                   //alert(JSON.parse(localStorage.getItem('webberUser')).email);
                });
             }
@@ -124,16 +129,17 @@ const responseFacebook = response => {
          });
    }
 };
+
 class LoginForm extends Component {
-   linkToNaverLogin() {
-      console.log('dddd');
-      window.open(
-         'http://localhost:9090/login',
-         'naverLogin',
-         'width:100px, height:300px'
-      );
-   }
-   componentwillUpdate() {
+   //    linkToNaverLogin() {
+   //       console.log('dddd');
+   //       window.open(
+   //          'http://localhost:9090/login',
+   //          'naverLogin',
+   //          'width:100px, height:300px'
+   //       );
+   //    }
+   componentWillUpdate() {
       window.scrollTo(0, 0);
    }
 
@@ -143,10 +149,11 @@ class LoginForm extends Component {
          callbackUrl: 'http://localhost:3000/auth/naver',
          isPopup: true /* 팝업을 통한 연동처리 여부 */,
          loginButton: {
-            color: 'green',
+            color: 'white',
             type: 3,
             height: 60
-         } /* 로그인 버튼의 타입을 지정 */
+         }
+         /* 로그인 버튼의 타입을 지정 */
       });
       /* 설정정보를 초기화하고 연동을 준비 */
       naverLogin.init();
@@ -172,7 +179,7 @@ class LoginForm extends Component {
             <div>
                <GoogleLogin
                   className="LoginForm_google"
-                  clientId="900915114673-p8eng273pmc1tdabkkfciadm7a37cqv0.apps.googleusercontent.com"
+                  clientId="961890564278-7tds7bjmf82km0e491bc2b68tuotjrnt.apps.googleusercontent.com"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                >
@@ -205,7 +212,7 @@ class LoginForm extends Component {
             <div id="naverIdLogin" className="LoginForm_naver" onClick={null}>
                {/* <div className="LoginForm_logo_naver">N</div> */}
                <div className="LoginForm_logo_naver" id="naver_id_login">
-                  {/* <img src={Naver_logo} alt="Naver" /> */}
+                  <img src={Naver_logo} alt="Naver" />
                </div>
                <div className="LoginForm_name">Naver</div>
             </div>
