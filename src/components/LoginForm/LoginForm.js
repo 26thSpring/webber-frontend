@@ -12,6 +12,9 @@ import Cookie from 'universal-cookie';
 import { request } from 'https';
 //import { request, get } from 'https';
 
+import ReactSVG from 'react-svg';
+import NaverLoginIcon from 'static/images/naverLoginIcon.svg';
+
 const responseGoogle = response => {
    console.log(response);
 
@@ -40,7 +43,7 @@ const responseGoogle = response => {
          .then(res => {
             console.log(res);
             var cookie = new Cookie();
-            cookie.get('')
+            cookie.get('');
             if (res.status === 200) {
                alert(res.headers);
                console.log(res.headers);
@@ -187,12 +190,24 @@ class LoginForm extends Component {
                   )}
                />
             </div>
-            <div id="naverIdLogin" className="LoginForm_naver" onClick={null}>
-               {/* <div className="LoginForm_logo_naver">N</div> */}
-               <div className="LoginForm_logo_naver" id="naver_id_login">
-                  {/* <img src={Naver_logo} alt="Naver" /> */}
+            <div className="LoginForm_naver">
+               <div id="naverIdLogin" />
+               <div className="naverWrapper">
+                  <ReactSVG
+                     src={NaverLoginIcon}
+                     evalScripts="always"
+                     renumerateIRIElements={false}
+                     svgClassName="icon_naver_svg"
+                     svgStyle={{
+                        width: '3.3rem',
+                        height: '3.3rem',
+                        color: 'white',
+                        fill: '#01bd38'
+                     }}
+                     className="icon_naver_wrapper"
+                  />
+                  <span>Naver</span>
                </div>
-               <div className="LoginForm_name">Naver</div>
             </div>
 
             <div className="LoginForm_bottom">
