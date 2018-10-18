@@ -12,8 +12,9 @@ const userMenu = () => {
    //console.log(window.document.getElementsByClassName('userMenuPositioner')[0]);
 };
 const logout = () => {
+   console.log('11111');
+   //window.localStorage.clear('webberUser');
    window.localStorage.clear('webberUser');
-   window.localStorage.clear();
 };
 const getUserThumbnail = () => {
    return JSON.parse(localStorage.getItem('webberUser')).thumbnail;

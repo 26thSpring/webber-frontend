@@ -43,7 +43,7 @@ const responseGoogle = response => {
                      'webberUser',
                      JSON.stringify(data.userVo)
                   );
-                  bake_cookie('accessToken', JSON.stringify(data.token));
+                  bake_cookie('accessToken', JSON.stringify(data).token);
                });
             }
             if (res.status === 400) {
