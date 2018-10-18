@@ -6,6 +6,11 @@
   color: white;
   font-size: 1.2rem;
   font-weight: 500;
+
+  .active {
+    height: 7rem;
+    opacity: 1;
+  }
 }
 .BoxModel_btn_dropdown {
   height: 2.7rem;
@@ -17,11 +22,15 @@
 .BoxModel_dropdown_menu {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
+  height: 0rem;
+  opacity: 0;
   padding: 1rem;
   background-color: $oc-gray-7;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  transition: all 0.25s ease;
 }
 .BoxModel_components {
   position: relative;
@@ -29,15 +38,14 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 4.3rem;
-  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.07);
+  height: 4.8rem;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.15);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 .BoxModel_div {
   @extend .BoxModel_components;
   background-color: $oc-blue-5;
-  margin-bottom: 1rem;
 
   &:hover {
     background-color: lighten($color: $oc-blue-5, $amount: 5);

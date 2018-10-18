@@ -10,6 +10,9 @@ import { createBrowserHistory } from 'history';
 import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 //import { request, get } from 'https';
 
+import ReactSVG from 'react-svg';
+import NaverLoginIcon from 'static/images/naverLoginIcon.svg';
+
 const responseGoogle = response => {
    console.log(response);
 
@@ -189,11 +192,24 @@ class LoginForm extends Component {
                   )}
                />
             </div>
-            <div id="naverIdLogin" className="LoginForm_naver" onClick={null}>
-               <div className="LoginForm_logo_naver" id="naver_id_login">
-                  <img src={Naver_logo} alt="Naver" />
+            <div className="LoginForm_naver">
+               <div id="naverIdLogin" />
+               <div className="naverWrapper">
+                  <ReactSVG
+                     src={NaverLoginIcon}
+                     evalScripts="always"
+                     renumerateIRIElements={false}
+                     svgClassName="icon_naver_svg"
+                     svgStyle={{
+                        width: '3.3rem',
+                        height: '3.3rem',
+                        color: 'white',
+                        fill: '#01bd38'
+                     }}
+                     className="icon_naver_wrapper"
+                  />
+                  <span>Naver</span>
                </div>
-               <div className="LoginForm_name">Naver</div>
             </div>
 
             <div className="LoginForm_bottom">
