@@ -6882,14 +6882,6 @@ react-is@^16.3.2:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
   integrity sha512-hSl7E6l25GTjNEZATqZIuWOgSnpXb3kD0DVCujmg46K5zLxsbiKaaT6VO9slkSBDPZfYs30lwfJwbOFOnoEnKQ==
 
-react-kakao-login@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-kakao-login/-/react-kakao-login-1.1.0.tgz#4cfbd85f9fa7f5ed04d870e69d0c6f0bb9ba792c"
-  integrity sha512-0Wpc6XjyFxVns76xfq5CoQls5juaG2+JRmk+GOTjpU1JPc9vpgQE8Dd8mQrIXosvE2oj4NosmuRMosFAbv5NKA==
-  dependencies:
-    prop-types "^15.6.0"
-    react "^16.5.1"
-
 react-redux@^5.0.7:
   version "5.0.7"
   resolved "http://registry.npmjs.org/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
@@ -6966,7 +6958,7 @@ react-svg@^6.0.18:
     "@tanem/svg-injector" "^1.2.1"
     prop-types "^15.6.2"
 
-react@^16.5.1, react@^16.5.2:
+react@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.5.2.tgz#19f6b444ed139baa45609eee6dc3d318b3895d42"
   integrity sha512-FDCSVd3DjVTmbEAjUNX6FgfAmQ+ypJfHUsqUJOYNCBUp1h8lqmtC+0mXJ+JjsWx4KAVTkk1vKd1hLQPvEviSuw==
