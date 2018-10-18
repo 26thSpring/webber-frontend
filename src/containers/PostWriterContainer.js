@@ -35,10 +35,11 @@ class PostWriterContainer extends Component {
       const data = new FormData(form);
       fetch('http://localhost:9090/api/community', {
          method: 'POST',
-         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-         },
          body: data
+      }).then(res => {
+         if (res.status === 200) {
+            window.location.href = '/community';
+         }
       });
    };
 
@@ -52,7 +53,11 @@ class PostWriterContainer extends Component {
       const { preview } = this.props;
       return (
          <Fragment>
-            <input type="hidden" name="nickname" value="webber" />
+            <input
+               type="hidden"
+               name="nickname"
+               value={JSON.parse(localStorage.getItem('webberUser')).nickname}
+            />
             <PostWriterHeader
                onTitleChange={handleTitleChange}
                onOutPage={handleInitState}

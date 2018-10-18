@@ -1,3 +1,4 @@
+@import "utils";
 .Header {
   position: fixed;
   display: flex;
@@ -11,4 +12,70 @@
   background-color: rgba(0, 0, 0, 0.77);
   color: white;
   z-index: 100;
+}
+.Header_menu {
+  display: flex;
+  align-items: center;
+}
+
+.Header_thumbnail {
+  display: flex;
+  align-items: center;
+  order: 1;
+  @include media("<small") {
+    order: -1;
+    margin-right: 0.5rem;
+  }
+}
+.userMenu_disable {
+  visibility: hidden;
+  opacity: 0;
+}
+.userMenuPositioner {
+  display: flex;
+
+  transition: all 0.25s ease;
+  width: 10rem;
+  height: 10rem;
+  //background-color: black;
+  position: absolute;
+  right: 0.5rem;
+  top: 3.2rem;
+}
+.rotated-square {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  //background-color: rgba(0, 0, 0, 0.77);
+  background-color: #adb5bd;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  right: 0.8rem;
+  top: 0.3rem;
+  z-index: 50;
+  @include media("<small") {
+    right: 3rem;
+  }
+}
+.user-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  //background-color: rgba(0, 0, 0, 0.77);
+  background-color: white;
+  margin-top: 0.8rem;
+  padding-bottom: 0.6rem;
+  color: black;
+  width: 10rem;
+  height: 7rem;
+  z-index: 100;
+  font-size: 1.5rem;
+  //box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.0875);
+  border: 0.1rem solid #adb5bd;
+  @include media("<small") {
+    margin-left: 2rem;
+  }
 }

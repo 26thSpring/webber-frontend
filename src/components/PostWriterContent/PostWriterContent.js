@@ -6,7 +6,7 @@ const PostWriterContent = ({ onContentChange }) => {
       <div className="PostWriterContent">
          <textarea
             className="PostWriterContent_writer"
-            name="contents"
+            name="content"
             placeholder="당신의 이야기를 적어주세요."
             onInput={onContentChange.bind(this)}
          />

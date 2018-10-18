@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './EditorView.scss';
 import { CustomComponent } from 'components/CustomComponent';
+import { EditorStyler } from 'components/EditorStyler';
+
+const handleDragOver = e => {
+   console.log(e.currentTarget);
+};
 
 const defaultStyle = {
    width: '50%',
@@ -19,11 +24,12 @@ const allowDrop = e => {
 const componentDrop = e => {
    console.log(e.target.offsetWidth);
    e.preventDefault();
-   const what = e.dataTransfer.getData('component');
-   let component;
-   console.log(what.id);
-   if (what === 'div') {
-      component = document.createElement('div');
+   if (e.dataTransfer.getData('text/plain')) {
+      const what = JSON.parse(e.dataTransfer.getData('text/plain'));
+      let component;
+      console.log(what.tag);
+
+      component = document.createElement(what.tag);
       component.style.width = defaultStyle.width;
       component.style.height = defaultStyle.height;
       component.style.backgroundColor = randomColor();
@@ -34,9 +40,14 @@ const componentDrop = e => {
 
 const EditorView = () => {
    return (
-      <div onDrop={componentDrop} onDragOver={allowDrop} className="EditorView">
-         <CustomComponent what={'span'} id={'null'} />
-      </div>
+      <Fragment>
+         <div
+            onDrop={componentDrop}
+            onDragOver={allowDrop}
+            className="EditorView"
+         />
+         <EditorStyler />
+      </Fragment>
    );
 };
 

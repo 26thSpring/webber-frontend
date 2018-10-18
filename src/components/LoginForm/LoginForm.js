@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import './LoginForm.scss';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { FaGoogle, FaFacebookSquare } from 'react-icons/fa';
+import { FaGoogle, FaFacebookSquare, FaWindowRestore } from 'react-icons/fa';
 import Naver_logo from 'static/images/naver_white.svg';
 import { GoogleLogin } from 'react-google-login';
-//import { GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createBrowserHistory } from 'history';
-import Cookie from 'universal-cookie';
-import { request } from 'https';
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 //import { request, get } from 'https';
+
+import ReactSVG from 'react-svg';
+import NaverLoginIcon from 'static/images/naverLoginIcon.svg';
 
 const responseGoogle = response => {
    console.log(response);
@@ -25,6 +26,8 @@ const responseGoogle = response => {
       email,
       thumbnail: imageUrl
    };
+
+   console.log(user);
    if (response.accessToken) {
       fetch('http://localhost:9090/api/auth/login', {
          credentials: 'same-origin',
@@ -36,12 +39,15 @@ const responseGoogle = response => {
          body: JSON.stringify(user)
       })
          .then(res => {
-            console.log(res);
-            var cookie = new Cookie();
-            cookie.get('')
             if (res.status === 200) {
-               alert(res.headers);
-               console.log(res.headers);
+               res.json().then(data => {
+                  console.log(JSON.stringify(data));
+                  localStorage.setItem(
+                     'webberUser',
+                     JSON.stringify(data.userVo)
+                  );
+                  bake_cookie('accessToken', JSON.stringify(data).token);
+               });
             }
             if (res.status === 400) {
                console.log(res.body);
@@ -87,8 +93,15 @@ const responseFacebook = response => {
          body: JSON.stringify(user)
       })
          .then(res => {
-            console.log(res.headers.entries);
-            //console.log(res);
+            if (res.status === 200) {
+               res.json().then(data => {
+                  localStorage.setItem(
+                     'webberUser',
+                     JSON.stringify(data.userVo)
+                  );
+                  bake_cookie('accessToken', JSON.stringify(data.token));
+               });
+            }
             if (res.status === 400) {
                console.log(res.body);
                const browserHistory = createBrowserHistory();
@@ -107,16 +120,9 @@ const responseFacebook = response => {
          });
    }
 };
+
 class LoginForm extends Component {
-   linkToNaverLogin() {
-      console.log('dddd');
-      window.open(
-         'http://localhost:9090/login',
-         'naverLogin',
-         'width:100px, height:300px'
-      );
-   }
-   componentwillUpdate() {
+   componentWillUpdate() {
       window.scrollTo(0, 0);
    }
 
@@ -126,10 +132,11 @@ class LoginForm extends Component {
          callbackUrl: 'http://localhost:3000/auth/naver',
          isPopup: true /* 팝업을 통한 연동처리 여부 */,
          loginButton: {
-            color: 'green',
+            color: 'white',
             type: 3,
             height: 60
-         } /* 로그인 버튼의 타입을 지정 */
+         }
+         /* 로그인 버튼의 타입을 지정 */
       });
       /* 설정정보를 초기화하고 연동을 준비 */
       naverLogin.init();
@@ -155,7 +162,7 @@ class LoginForm extends Component {
             <div>
                <GoogleLogin
                   className="LoginForm_google"
-                  clientId="900915114673-p8eng273pmc1tdabkkfciadm7a37cqv0.apps.googleusercontent.com"
+                  clientId="961890564278-7tds7bjmf82km0e491bc2b68tuotjrnt.apps.googleusercontent.com"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                >
@@ -185,12 +192,24 @@ class LoginForm extends Component {
                   )}
                />
             </div>
-            <div id="naverIdLogin" className="LoginForm_naver" onClick={null}>
-               {/* <div className="LoginForm_logo_naver">N</div> */}
-               <div className="LoginForm_logo_naver" id="naver_id_login">
-                  {/* <img src={Naver_logo} alt="Naver" /> */}
+            <div className="LoginForm_naver">
+               <div id="naverIdLogin" />
+               <div className="naverWrapper">
+                  <ReactSVG
+                     src={NaverLoginIcon}
+                     evalScripts="always"
+                     renumerateIRIElements={false}
+                     svgClassName="icon_naver_svg"
+                     svgStyle={{
+                        width: '3.3rem',
+                        height: '3.3rem',
+                        color: 'white',
+                        fill: '#01bd38'
+                     }}
+                     className="icon_naver_wrapper"
+                  />
+                  <span>Naver</span>
                </div>
-               <div className="LoginForm_name">Naver</div>
             </div>
 
             <div className="LoginForm_bottom">

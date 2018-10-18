@@ -1,8 +1,10 @@
 @import "utils";
 
 .EditorNav {
+  position: relative;
   width: 20rem;
   height: 100%;
   background-color: $oc-gray-9;
   padding: 1rem;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
 }
