@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import './LoginForm.scss';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { FaGoogle, FaFacebookSquare } from 'react-icons/fa';
+import { FaGoogle, FaFacebookSquare, FaWindowRestore } from 'react-icons/fa';
 import Naver_logo from 'static/images/naver_white.svg';
 import { GoogleLogin } from 'react-google-login';
-//import { GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createBrowserHistory } from 'history';
-import Cookie from 'universal-cookie';
-import { request } from 'https';
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 //import { request, get } from 'https';
 
 const responseGoogle = response => {
@@ -38,14 +36,14 @@ const responseGoogle = response => {
          body: JSON.stringify(user)
       })
          .then(res => {
-            console.log(res);
             if (res.status === 200) {
                res.json().then(data => {
-                  localStorage.setItem('webberUser', JSON.stringify(data));
-                  console.log(
-                     JSON.parse(localStorage.getItem('webberUser')).result
-                        .result[0].email
+                  console.log(JSON.stringify(data));
+                  localStorage.setItem(
+                     'webberUser',
+                     JSON.stringify(data.userVo)
                   );
+                  bake_cookie('accessToken', JSON.stringify(data.token));
                });
             }
             if (res.status === 400) {
@@ -94,23 +92,13 @@ const responseFacebook = response => {
          .then(res => {
             if (res.status === 200) {
                res.json().then(data => {
-                  localStorage.setItem('webberUser', JSON.stringify(data));
-                  console.log(
-                     JSON.parse(localStorage.getItem('webberUser')).result
-                        .result
+                  localStorage.setItem(
+                     'webberUser',
+                     JSON.stringify(data.userVo)
                   );
-
-                  window.$.cookie('accessToken');
-                  //alert(JSON.parse(localStorage.getItem('webberUser')).email);
+                  bake_cookie('accessToken', JSON.stringify(data.token));
                });
             }
-            // console.log(
-            //    res.json().then(data => {
-            //       console.log(data);
-            //    })
-            // );
-            //console.log(res.headers.get('auth'));
-            //console.log(res);
             if (res.status === 400) {
                console.log(res.body);
                const browserHistory = createBrowserHistory();
@@ -131,14 +119,6 @@ const responseFacebook = response => {
 };
 
 class LoginForm extends Component {
-   //    linkToNaverLogin() {
-   //       console.log('dddd');
-   //       window.open(
-   //          'http://localhost:9090/login',
-   //          'naverLogin',
-   //          'width:100px, height:300px'
-   //       );
-   //    }
    componentWillUpdate() {
       window.scrollTo(0, 0);
    }
@@ -210,7 +190,6 @@ class LoginForm extends Component {
                />
             </div>
             <div id="naverIdLogin" className="LoginForm_naver" onClick={null}>
-               {/* <div className="LoginForm_logo_naver">N</div> */}
                <div className="LoginForm_logo_naver" id="naver_id_login">
                   <img src={Naver_logo} alt="Naver" />
                </div>
