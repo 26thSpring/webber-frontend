@@ -56,7 +56,9 @@ class Header extends Component {
          <Fragment>
             <div className="Header">
                <HeaderLogo Active={this.state.Active} />
-               <HeaderNav onClickHandle={onClickHandle} />
+               <div>
+                  <HeaderNav onClickHandle={onClickHandle} />
+               </div>
             </div>
             <MenuDiv Active={this.state.Active} onClickHandle={onClickHandle} />
          </Fragment>

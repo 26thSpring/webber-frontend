@@ -10,7 +10,10 @@ class PostListContainer extends Component {
       fetch('http://localhost:9090/api/community')
          .then(res => {
             if (res.status === 200) {
-               res.json().then(data => PostListActions.mergeData(data));
+               res.json().then(data => {
+                  console.log(data);
+                  PostListActions.mergeData(data);
+               });
             }
          })
          .catch(err => console.log(err));
