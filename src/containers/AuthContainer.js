@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as authActions from 'store/modules/auth';
 
 class AuthContainer extends Component {
-   handleAuth = e => {
+   handleRequestAuth = e => {
       const { AuthActions } = this.props;
       AuthActions.authNaver('true');
    };
@@ -17,7 +17,7 @@ class AuthContainer extends Component {
 
    render() {
       console.log(this.props.auth);
-      const { handleAuth } = this;
+      const { handleRequestAuth } = this;
       const { authState } = this.props;
       return (
          <Fragment>

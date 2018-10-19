@@ -21,7 +21,7 @@ const Main = () => {
          <Route path="/community" component={Community} />
          <Route path="/postview" component={PostView} />
          <Route path="/postwriter" component={PostWriter} />
-         <Route path="/profile" component={Profile} />
+         <Route path="/profile/:nickname" component={Profile} />
          <Route path="/" component={Intro} />
       </Switch>
    );
