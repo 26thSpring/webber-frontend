@@ -4,6 +4,7 @@ import { IconContext } from 'react-icons';
 import { GoComment } from 'react-icons/go/';
 
 const PostViewHeader = ({ data }) => {
+   //console.log('postheader : ' + data.replyNum);
    const {
       board_Id,
       nickname,
@@ -16,15 +17,11 @@ const PostViewHeader = ({ data }) => {
       thumbnail,
       replies
    } = data;
-
    return (
       <div className="PostViewHeader">
          <div className="PostViewHeader_Head">
             <div className="PostViewHeader_thumbnail">
-               <img
-                  src="https://png.pngtree.com/element_origin_min_pic/17/03/18/c725e020d58d9c6ae6da4270357e4e9a.jpg"
-                  alt={nickname}
-               />
+               <img src={thumbnail} alt={nickname} />
             </div>
             <div className="PostViewHeader_nickName">{nickname}</div>
          </div>

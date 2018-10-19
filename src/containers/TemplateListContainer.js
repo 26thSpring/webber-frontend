@@ -11,7 +11,7 @@ class TemplateListContainer extends Component {
          .then(res => {
             if (res.status === 200) {
                res.json().then(data => {
-                  console.log(data);
+                  console.log('TemplateListContainer : ' + data);
                   TemplateListActions.mergeData(data);
                });
             }
@@ -32,6 +32,7 @@ class TemplateListContainer extends Component {
    render() {
       const { handleDataFetch, handleInitState } = this;
       const { templateList } = this.props;
+      console.log('TemplateListContainer templateList : ' + templateList);
       return (
          <div className="TemplateList">
             {templateList.map((template, index) => {

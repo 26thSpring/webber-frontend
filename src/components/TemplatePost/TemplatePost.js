@@ -5,7 +5,23 @@ import { MdImage, MdMoreVert } from 'react-icons/md';
 import { TiHeartOutline, TiBookmark } from 'react-icons/ti';
 import { IconContext } from 'react-icons';
 
-const TemplatePost = () => {
+const TemplatePost = ({ data }) => {
+   console.log('TemplatePost : ' + JSON.stringify(data));
+   const {
+      template_id,
+      nickname,
+      file_name,
+      file_path_html,
+      file_path_css,
+      thumbnail,
+      htmlContent,
+      cssContent,
+      views,
+      likes,
+      regdate,
+      favor,
+      replies
+   } = data;
    return (
       <div className="TemplatePost">
          <Link className="TemplatePost_head" to="/template">
@@ -19,9 +35,11 @@ const TemplatePost = () => {
          <div className="TemplatePost_body">
             <div className="TemplatePost_body_info">
                <div className="writer">
-                  <Link to="/template">webber</Link>
+                  <Link to="/template">{file_name}</Link>
                </div>
-               <div className="regdate_reply">2 days ago · 3 reply</div>
+               <div className="regdate_reply">
+                  {regdate} · {views} reply
+               </div>
             </div>
             <div className="TemplatePost_body_toggle">
                <IconContext.Provider
@@ -29,7 +47,7 @@ const TemplatePost = () => {
                >
                   <div className="toggle_like flex-row-center">
                      <TiHeartOutline />
-                     13
+                     {likes}
                   </div>
                </IconContext.Provider>
                <IconContext.Provider
