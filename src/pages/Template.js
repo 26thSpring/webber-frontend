@@ -2,13 +2,15 @@ import React from 'react';
 import './Template.scss';
 import { TemplatePost } from 'components/TemplatePost';
 import { ContentHeader } from 'components/ContentHeader';
+import TemplateListContainer from 'containers/TemplateListContainer';
 
 const Template = () => {
    return (
       <div className="TemplateTemplate">
          <ContentHeader title="template" />
          <div className="TemplateSection">
-            <div className="TemplateList">
+            <TemplateListContainer />
+            {/* <div className="TemplateList">
                <TemplatePost />
                <TemplatePost />
                <TemplatePost />
@@ -21,7 +23,7 @@ const Template = () => {
                <TemplatePost />
                <TemplatePost />
                <TemplatePost />
-            </div>
+            </div> */}
          </div>
       </div>
    );

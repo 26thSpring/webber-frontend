@@ -9,12 +9,13 @@ export const authNaver = createAction(AUTH_NAVER);
 export const initAuth = createAction(INIT_AUTH);
 
 const initialState = Map({
-   authState: 'false'
+   naver: false,
+   authState: false
 });
 
 export default handleActions(
    {
-      [AUTH_NAVER]: (state, action) => state.set('authState', action.payload),
+      [AUTH_NAVER]: (state, action) => state.set('naver', action.payload),
       [INIT_AUTH]: (state, action) => state.set('authState', action.payload)
    },
    initialState
