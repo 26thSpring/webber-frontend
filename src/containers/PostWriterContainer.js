@@ -53,7 +53,11 @@ class PostWriterContainer extends Component {
       const { preview } = this.props;
       return (
          <Fragment>
-            <input type="hidden" name="nickname" value="webber" />
+            <input
+               type="hidden"
+               name="nickname"
+               value={JSON.parse(localStorage.getItem('webberUser')).nickname}
+            />
             <PostWriterHeader
                onTitleChange={handleTitleChange}
                onOutPage={handleInitState}

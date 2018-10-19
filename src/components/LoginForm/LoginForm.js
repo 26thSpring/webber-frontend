@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import './LoginForm.scss';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { FaGoogle, FaFacebookSquare } from 'react-icons/fa';
+import { FaGoogle, FaFacebookSquare, FaWindowRestore } from 'react-icons/fa';
 import Naver_logo from 'static/images/naver_white.svg';
 import { GoogleLogin } from 'react-google-login';
-//import { GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createBrowserHistory } from 'history';
-import Cookie from 'universal-cookie';
-import { request } from 'https';
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 //import { request, get } from 'https';
 
 import ReactSVG from 'react-svg';
@@ -41,10 +39,15 @@ const responseGoogle = response => {
          body: JSON.stringify(user)
       })
          .then(res => {
-            console.log(res);
             if (res.status === 200) {
-               alert(res.headers);
-               console.log(res.headers);
+               res.json().then(data => {
+                  console.log(JSON.stringify(data));
+                  localStorage.setItem(
+                     'webberUser',
+                     JSON.stringify(data.userVo)
+                  );
+                  bake_cookie('accessToken', JSON.stringify(data).token);
+               });
             }
             if (res.status === 400) {
                console.log(res.body);
@@ -92,23 +95,13 @@ const responseFacebook = response => {
          .then(res => {
             if (res.status === 200) {
                res.json().then(data => {
-                  localStorage.setItem('webberUser', JSON.stringify(data));
-                  console.log(
-                     JSON.parse(localStorage.getItem('webberUser')).result
-                        .result
+                  localStorage.setItem(
+                     'webberUser',
+                     JSON.stringify(data.userVo)
                   );
-
-                  window.$.cookie('accessToken', 'sdfsdfsdf');
-                  //alert(JSON.parse(localStorage.getItem('webberUser')).email);
+                  bake_cookie('accessToken', JSON.stringify(data.token));
                });
             }
-            // console.log(
-            //    res.json().then(data => {
-            //       console.log(data);
-            //    })
-            // );
-            //console.log(res.headers.get('auth'));
-            //console.log(res);
             if (res.status === 400) {
                console.log(res.body);
                const browserHistory = createBrowserHistory();
@@ -127,16 +120,9 @@ const responseFacebook = response => {
          });
    }
 };
+
 class LoginForm extends Component {
-   linkToNaverLogin() {
-      console.log('dddd');
-      window.open(
-         'http://localhost:9090/login',
-         'naverLogin',
-         'width:100px, height:300px'
-      );
-   }
-   componentwillUpdate() {
+   componentWillUpdate() {
       window.scrollTo(0, 0);
    }
 
@@ -146,10 +132,11 @@ class LoginForm extends Component {
          callbackUrl: 'http://localhost:3000/auth/naver',
          isPopup: true /* 팝업을 통한 연동처리 여부 */,
          loginButton: {
-            color: 'green',
+            color: 'white',
             type: 3,
             height: 60
-         } /* 로그인 버튼의 타입을 지정 */
+         }
+         /* 로그인 버튼의 타입을 지정 */
       });
       /* 설정정보를 초기화하고 연동을 준비 */
       naverLogin.init();
@@ -175,7 +162,7 @@ class LoginForm extends Component {
             <div>
                <GoogleLogin
                   className="LoginForm_google"
-                  clientId="900915114673-p8eng273pmc1tdabkkfciadm7a37cqv0.apps.googleusercontent.com"
+                  clientId="961890564278-7tds7bjmf82km0e491bc2b68tuotjrnt.apps.googleusercontent.com"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                >
