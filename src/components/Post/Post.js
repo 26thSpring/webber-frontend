@@ -6,9 +6,17 @@ import { GoComment, GoClock } from 'react-icons/go';
 
 const Post = ({ data }) => {
    console.log(data);
-   const { thumbnail, nickname, title, regdate, views, replyNum } = data;
+   const {
+      thumbnail,
+      nickname,
+      title,
+      regdate,
+      views,
+      replyNum,
+      board_Id
+   } = data;
    return (
-      <Link to="/PostView">
+      <Link to={`/postview/${board_Id}`}>
          <div className="Post">
             <div className="Post_thumbnail">
                <img src={thumbnail} alt="Post_thumbnail" />

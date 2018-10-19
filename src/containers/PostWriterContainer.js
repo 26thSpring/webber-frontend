@@ -56,7 +56,7 @@ class PostWriterContainer extends Component {
             <input
                type="hidden"
                name="nickname"
-               value={JSON.parse(localStorage.getItem('webberUser')).nickname}
+               value={JSON.parse(localStorage.getItem('webber_user')).nickname}
             />
             <PostWriterHeader
                onTitleChange={handleTitleChange}

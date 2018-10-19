@@ -57,6 +57,11 @@
     color: $oc-red-7;
   }
 }
+.RegisterForm_body_email {
+  input[type="text"] {
+    background-color: $oc-gray-4;
+  }
+}
 .register_input_form {
   display: flex;
   flex-direction: column;

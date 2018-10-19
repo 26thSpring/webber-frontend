@@ -3,7 +3,6 @@ import './HeaderNav.scss';
 import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
-import { GoogleLogout } from 'react-google-login';
 
 // const logout = () => {
 //    localStorage.clear('webberUser');
@@ -45,7 +44,7 @@ const HeaderNav = ({ onClickHandle }) => {
                //         style={thumbnailStyle}
                //      />
                //   </div> */}
-               {!localStorage.getItem('webberUser') && (
+               {!localStorage.getItem('webber_user') && (
                   <Link to="/login">login</Link>
                )}
             </div>

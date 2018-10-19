@@ -5,22 +5,19 @@ import { IconContext } from 'react-icons';
 import { createBrowserHistory } from 'history';
 
 const RegisterForm = ({ user }) => {
-   const handleRedirect = () => {
-      console.log('클릭!');
-      const browserHistory = createBrowserHistory();
-      console.log(browserHistory);
-      browserHistory.push('/login', 'hihi');
-      browserHistory.go(0);
-   };
+   //    const handleRedirect = () => {
+   //       console.log('클릭!');
+   //       const browserHistory = createBrowserHistory();
+   //       console.log(browserHistory);
+   //       browserHistory.push('/login', 'hihi');
+   //       browserHistory.go(0);
+   //    };
    console.log(user);
    return (
       <div className="RegisterForm">
          <form action="http://localhost:9090/api/auth/register" method="POST">
             <div className="RegisterForm_header">
-               <div
-                  className="RegisterForm_header_title"
-                  onClick={handleRedirect}
-               >
+               <div className="RegisterForm_header_title">
                   webber&nbsp;
                   <span> / 회원가입</span>
                </div>

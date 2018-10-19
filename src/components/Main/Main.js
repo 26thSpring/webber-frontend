@@ -19,9 +19,9 @@ const Main = () => {
          <Route path="/editor" component={Editor} />
          <Route path="/template" component={Template} />
          <Route path="/community" component={Community} />
-         <Route path="/postview" component={PostView} />
+         <Route path="/postview/:board_id" component={PostView} />
          <Route path="/postwriter" component={PostWriter} />
-         <Route path="/profile" component={Profile} />
+         <Route path="/profile/:nickname" component={Profile} />
          <Route path="/" component={Intro} />
       </Switch>
    );

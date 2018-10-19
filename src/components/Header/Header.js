@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { HeaderLogo } from 'components/HeaderLogo';
 import { HeaderNav } from 'components/HeaderNav';
 import { GoogleLogout } from 'react-google-login';
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 import './Header.scss';
 
 const userMenu = () => {
@@ -12,15 +13,16 @@ const userMenu = () => {
    //console.log(window.document.getElementsByClassName('userMenuPositioner')[0]);
 };
 const logout = () => {
-   console.log('11111');
+   delete_cookie('access_token');
    //window.localStorage.clear('webberUser');
    window.localStorage.clear();
 };
 const getUserThumbnail = () => {
-   return JSON.parse(localStorage.getItem('webberUser')).thumbnail;
+   //return localStorage.getItem('webberUser').thumbnail;
+   return JSON.parse(localStorage.getItem('webber_user')).thumbnail;
 };
 const getUserNickname = () => {
-   return JSON.parse(localStorage.getItem('webberUser')).nickname;
+   return JSON.parse(localStorage.getItem('webber_user')).nickname;
 };
 const thumbnailStyle = {
    width: '2rem',
@@ -48,7 +50,7 @@ const MenuDiv = ({ Active, onClickHandle }) => {
 
    return (
       <div className="MenuDiv" style={MenuStyle}>
-         {!localStorage.getItem('webberUser') && (
+         {!localStorage.getItem('webber_user') && (
             <Link to="/login" onClick={onClickHandle.bind(this)}>
                login
             </Link>
@@ -84,19 +86,24 @@ class Header extends Component {
             <div className="Header">
                <HeaderLogo Active={this.state.Active} />
                <div className="Header_menu">
-                  {localStorage.getItem('webberUser') && (
+                  {localStorage.getItem('webber_user') && (
                      <Fragment>
                         <div onClick={userMenu} className="Header_thumbnail">
                            <img
                               src={getUserThumbnail()}
                               alt={getUserNickname()}
+                              //   src={null}
+                              //   alt="thumb"
                               style={thumbnailStyle}
                            />
                         </div>
                         <div className="userMenuPositioner userMenu_disable">
                            <div className="rotated-square" />
                            <div className="user-menu">
-                              <Link to="/Profile" className="user-profile">
+                              <Link
+                                 to={`/profile/${getUserNickname()}`}
+                                 className="user-profile"
+                              >
                                  profile
                               </Link>
                               <GoogleLogout

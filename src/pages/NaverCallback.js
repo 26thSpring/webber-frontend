@@ -26,7 +26,10 @@ class NaverCallback extends Component {
                   return;
                }
 
-               window.opener.location.reload();
+               window.opener.postMessage(
+                  naverLogin.user,
+                  'http://localhost:3000/login'
+               );
                window.close();
             } else {
                console.log('callback 처리에 실패하였습니다.');
