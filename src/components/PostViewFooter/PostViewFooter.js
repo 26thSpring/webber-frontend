@@ -16,10 +16,9 @@ class PostViewFooter extends Component {
             .then(res => {
                res.json().then(data => {
                   this.setState({
+                     dataCheck: true,
                      data: data.replies
                   });
-                  //console.log(data);
-                  console.log(this.state.data);
                });
             })
             .catch(err => {
@@ -28,9 +27,6 @@ class PostViewFooter extends Component {
       }
    }
    render() {
-      //console.log(this.state);
-      //const replyData = this.props.data.replies;
-      //console.log(replyData);
       return (
          <div className="PostViewFooter">
             <form method="POST" action="http://localhost:9090/api/reply">
@@ -54,19 +50,20 @@ class PostViewFooter extends Component {
                </div>
             </form>
             <div className="replyList" id="replyBox">
-               {this.state.data.map((reply, i) => {
-                  return (
-                     <Reply
-                        reply_Id={reply.reply_Id}
-                        board_Id={reply.board_Id}
-                        content={reply.content}
-                        nickname={reply.nickname}
-                        date={reply.date}
-                        thumbnail={reply.thumbnail}
-                        key={i}
-                     />
-                  );
-               })}
+               {this.state.dataCheck &&
+                  this.state.data.map((reply, i) => {
+                     return (
+                        <Reply
+                           reply_Id={reply.reply_Id}
+                           board_Id={reply.board_Id}
+                           content={reply.content}
+                           nickname={reply.nickname}
+                           date={reply.date}
+                           thumbnail={reply.thumbnail}
+                           key={i}
+                        />
+                     );
+                  })}
             </div>
          </div>
       );
