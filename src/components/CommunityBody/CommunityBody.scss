@@ -3,6 +3,10 @@
 .CommunityBody {
   padding-top: 1.875rem;
 }
+.CommunityBody_link_postwriter_wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
 .CommunityBody_link_postwriter {
   font-size: 1.1rem;
   font-weight: 300;

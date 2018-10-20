@@ -27,7 +27,7 @@ const responseGoogle = response => {
       thumbnail: imageUrl
    };
 
-   console.log(user);
+   console.log('googleuser:' + user);
    if (response.accessToken) {
       fetch('http://localhost:9090/api/auth/login', {
          credentials: 'same-origin',
@@ -39,14 +39,15 @@ const responseGoogle = response => {
          body: JSON.stringify(user)
       })
          .then(res => {
+            console.log(res);
             if (res.status === 200) {
                res.json().then(data => {
-                  console.log(JSON.stringify(data));
+                  console.log(JSON.stringify(data.userVo));
                   localStorage.setItem(
-                     'webberUser',
+                     'webber_user',
                      JSON.stringify(data.userVo)
                   );
-                  bake_cookie('accessToken', JSON.stringify(data).token);
+                  bake_cookie('access_token', data.token);
                });
             }
             if (res.status === 400) {
@@ -96,10 +97,10 @@ const responseFacebook = response => {
             if (res.status === 200) {
                res.json().then(data => {
                   localStorage.setItem(
-                     'webberUser',
+                     'webber_user',
                      JSON.stringify(data.userVo)
                   );
-                  bake_cookie('accessToken', JSON.stringify(data.token));
+                  bake_cookie('access_token', data.token);
                });
             }
             if (res.status === 400) {
@@ -122,6 +123,58 @@ const responseFacebook = response => {
 };
 
 class LoginForm extends Component {
+   constructor() {
+      super();
+      window.addEventListener('message', e => {
+         console.log(e.data);
+
+         if (e.data.email) {
+            const user = {
+               type: 'N',
+               id: e.data.id,
+               email: e.data.email,
+               thumbnail: e.data.profile_image,
+               accessToken: ''
+            };
+
+            fetch('http://localhost:9090/api/auth/login', {
+               credentials: 'same-origin',
+               method: 'POST',
+               headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json'
+               },
+               body: JSON.stringify(user)
+            })
+               .then(res => {
+                  if (res.status === 200) {
+                     res.json().then(data => {
+                        localStorage.setItem(
+                           'webber_user',
+                           JSON.stringify(data.userVo)
+                        );
+                        bake_cookie('access_token', data.token);
+                     });
+                  }
+                  if (res.status === 400) {
+                     console.log(res.body);
+                     const browserHistory = createBrowserHistory();
+                     browserHistory.push('/register', user);
+                     browserHistory.go(0);
+                  }
+               })
+               .catch(err => {
+                  // 에러코드 -1 회원가입
+                  console.log(err.body);
+                  if (err.code === -1) {
+                     const browserHistory = createBrowserHistory();
+                     browserHistory.push('/register', user);
+                     browserHistory.go(0);
+                  }
+               });
+         }
+      });
+   }
    componentWillUpdate() {
       window.scrollTo(0, 0);
    }
@@ -141,17 +194,17 @@ class LoginForm extends Component {
       /* 설정정보를 초기화하고 연동을 준비 */
       naverLogin.init();
 
-      naverLogin.getLoginStatus(function(status) {
-         if (status) {
-            var email = naverLogin.user.getEmail();
-            var profileImage = naverLogin.user.getProfileImage();
+      // naverLogin.getLoginStatus(function(status) {
+      //    if (status) {
+      //       var email = naverLogin.user.getEmail();
+      //       var profileImage = naverLogin.user.getProfileImage();
 
-            console.log('이메일: ' + email);
-            console.log('프로필사진: ' + profileImage);
-         } else {
-            console.log('AccessToken이 올바르지 않습니다.');
-         }
-      });
+      //       console.log('이메일: ' + email);
+      //       console.log('프로필사진: ' + profileImage);
+      //    } else {
+      //       console.log('AccessToken이 올바르지 않습니다.');
+      //    }
+      // });
    }
 
    render() {

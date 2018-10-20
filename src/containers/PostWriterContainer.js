@@ -5,6 +5,7 @@ import { PostWriterPreview } from 'components/PostWriterPreview';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as postWriterActions from 'store/modules/postWriter';
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 class PostWriterContainer extends Component {
    handleTitleChange = e => {
@@ -56,7 +57,12 @@ class PostWriterContainer extends Component {
             <input
                type="hidden"
                name="nickname"
-               value={JSON.parse(localStorage.getItem('webberUser')).nickname}
+               value={JSON.parse(localStorage.getItem('webber_user')).nickname}
+            />
+            <input
+               type="hidden"
+               name="access_token"
+               value={read_cookie('access_token')}
             />
             <PostWriterHeader
                onTitleChange={handleTitleChange}

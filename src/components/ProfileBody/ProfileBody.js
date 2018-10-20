@@ -2,18 +2,11 @@ import React from 'react';
 import './ProfileBody.scss';
 import { TemplatePost } from 'components/TemplatePost';
 
-const ProfileBody = () => {
+const ProfileBody = ({ data }) => {
+   console.log('profilebody : ' + JSON.stringify(data).templatelist);
    return (
       <div className="ProfileBody">
-         <div className="ProfileBody_TemplateList">
-            <TemplatePost />
-            <TemplatePost />
-            <TemplatePost />
-            <TemplatePost />
-            <TemplatePost />
-            <TemplatePost />
-            <TemplatePost />
-         </div>
+         <TemplatePost data={data} />
       </div>
    );
 };
