@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './PostViewFooter.scss';
 import { Reply } from 'components/Reply';
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 class PostViewFooter extends Component {
-   constructor() {
-      super();
-      this.state = {
-         data: []
-      };
-   }
+   state = {
+      dataCheck: false,
+      data: []
+   };
    componentDidMount() {
       if (this.props.data.board_Id) {
          fetch(
@@ -19,6 +18,8 @@ class PostViewFooter extends Component {
                   this.setState({
                      data: data.replies
                   });
+                  //console.log(data);
+                  console.log(this.state.data);
                });
             })
             .catch(err => {
@@ -26,23 +27,33 @@ class PostViewFooter extends Component {
             });
       }
    }
-   componentDidUpdate() {
-      console.log(this.state.data);
-   }
    render() {
+      //console.log(this.state);
+      //const replyData = this.props.data.replies;
+      //console.log(replyData);
       return (
          <div className="PostViewFooter">
-            <div className="replyForm">
-               <textarea
-                  name="replyForm"
-                  id="replyForm"
-                  placeholder="Add Your Comment! (140)"
-               />
-            </div>
-            <div className="replyPost">
-               <div className="replyPost_button">POST</div>
-            </div>
-            <div className="replyList">
+            <form method="POST" action="http://localhost:9090/api/reply">
+               <div className="replyForm">
+                  <input
+                     className="PostViewFooter_replyData"
+                     value={this.props.data.board_Id}
+                     name="board_id"
+                  />
+                  <input
+                     className="PostViewFooter_replyData"
+                     value={read_cookie('access_token')}
+                     name="access_token"
+                  />
+                  <textarea name="contents" placeholder="Add Your Comments!" />
+               </div>
+               <div className="replyPost">
+                  <button className="replyPost_button" type="submit">
+                     POST
+                  </button>
+               </div>
+            </form>
+            <div className="replyList" id="replyBox">
                {this.state.data.map((reply, i) => {
                   return (
                      <Reply

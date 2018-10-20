@@ -13,32 +13,39 @@ const TemplatePost = ({ data }) => {
       file_name,
       file_path_html,
       file_path_css,
-      thumbnail,
+      tthumbnail,
       htmlContent,
       cssContent,
       views,
       likes,
       regdate,
       favor,
-      replies
+      replies,
+      replyNum
+      //댓글 갯수가 몇갠지 뽑아야됨
    } = data;
    return (
       <div className="TemplatePost">
          <Link className="TemplatePost_head" to="/template">
             <div className="TemplatePost_head_thumbnail">
-               <IconContext.Provider value={{ size: '80', color: 'white' }}>
+               {/* <IconContext.Provider value={{ size: '80', color: 'white' }}>
                   <MdImage />
-               </IconContext.Provider>
+               </IconContext.Provider> */}
+               <img
+                  src={tthumbnail}
+                  alt={file_name}
+                  className="TemplatePost_head_thumbnail"
+               />
             </div>
             <div className="TemplatePost_head_whiteSpace" />
          </Link>
          <div className="TemplatePost_body">
             <div className="TemplatePost_body_info">
                <div className="writer">
-                  <Link to="/template">{file_name}</Link>
+                  <Link to="/template">{nickname}</Link>
                </div>
                <div className="regdate_reply">
-                  {regdate} · {views} reply
+                  {regdate} · {replyNum} reply
                </div>
             </div>
             <div className="TemplatePost_body_toggle">
@@ -50,13 +57,13 @@ const TemplatePost = ({ data }) => {
                      {likes}
                   </div>
                </IconContext.Provider>
-               <IconContext.Provider
+               {/* <IconContext.Provider
                   value={{ size: '23', className: 'bookmarkIcon' }}
                >
                   <div className="toggle_bookmark flex-row-center">
                      <TiBookmark />
                   </div>
-               </IconContext.Provider>
+               </IconContext.Provider> */}
                <IconContext.Provider value={{ size: '23' }}>
                   <div className="button_more flex-row-center">
                      <MdMoreVert />

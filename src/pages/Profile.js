@@ -30,7 +30,7 @@ class Profile extends Component {
             <div className="ProfileHead_mobile_head" />
             <div className="ProfileSection">
                <ProfileHead data={this.state.data} />
-               <ProfileBody />
+               <ProfileBody data={this.state.data} />
             </div>
          </div>
       );

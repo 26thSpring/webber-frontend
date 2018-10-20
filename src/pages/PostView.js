@@ -9,18 +9,12 @@ class PostView extends Component {
       data: {}
    };
    componentDidMount() {
-      //console.log(this.props.match.params);
-      //if (this.props.match.params.board_id) {
       fetch(
          'http://localhost:9090/api/community/' +
             this.props.match.params.board_id
       )
          .then(res => {
-            console.log('res' + res);
-
             res.json().then(data => {
-               console.log('postview : ' + JSON.stringify(data));
-               //console.log(data.board_Id);
                this.setState({
                   data
                });
@@ -29,7 +23,6 @@ class PostView extends Component {
          .catch(err => {
             console.log(err);
          });
-      //  }
    }
    render() {
       return (

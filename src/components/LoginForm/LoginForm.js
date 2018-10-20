@@ -47,10 +47,7 @@ const responseGoogle = response => {
                      'webber_user',
                      JSON.stringify(data.userVo)
                   );
-                  let access_token = data.token;
-                  //access_token.subString(0, 2);
-
-                  bake_cookie('access_token', access_token);
+                  bake_cookie('access_token', data.token);
                });
             }
             if (res.status === 400) {
