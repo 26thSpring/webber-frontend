@@ -14,20 +14,30 @@ export const insertComponent = createAction(
 export const changeCurrent = createAction(CHANGE_CURRENT, text => text);
 export const changeStyles = createAction(CHANGE_STYLES, styles => styles);
 
-const initialState = {
+const initialState = Map({
    what: 'div',
    innerHTML: '',
-   styles: Map({}),
+   styles: Map({
+      position: '',
+      display: '',
+      width: '',
+      height: '',
+      backgroundColor: '',
+      color: '',
+      border: '',
+      margin: '',
+      padding: ''
+   }),
    currentComponent: ''
-};
+});
 
 export default handleActions(
    {
       [INSERT_COMPONENT]: (state, action) =>
          state.set('innerHTML', action.payload),
-      [CHANGE_CURRENT]: (state, action) =>
-         state.set('currentComponent', action.payload),
-      [CHANGE_STYLES]: (state, action) => state.set('styles', action.payload)
+      [CHANGE_CURRENT]: (state, action) => state.set('styles', action.payload),
+      [CHANGE_STYLES]: (state, action) =>
+         state.set('styles', Map(...state.get('styles'), action.payload))
    },
    initialState
 );
