@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import './LoginForm.scss';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { FaGoogle, FaFacebookSquare, FaWindowRestore } from 'react-icons/fa';
-import Naver_logo from 'static/images/naver_white.svg';
+import { FaGoogle, FaFacebookSquare } from 'react-icons/fa';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createBrowserHistory } from 'history';
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
-//import { request, get } from 'https';
+import { bake_cookie } from 'sfcookies';
 
 import ReactSVG from 'react-svg';
 import NaverLoginIcon from 'static/images/naverLoginIcon.svg';

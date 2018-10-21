@@ -3,21 +3,44 @@ import './Reply.scss';
 import { IconContext } from 'react-icons';
 import { GoTrashcan } from 'react-icons/go/';
 import { GoTools } from 'react-icons/go/';
+import { read_cookie } from 'sfcookies';
 
+const deleteReply = reply_id => {
+   //    this.setState = {
+   //       Active: !this.state.Active
+   //    };
+   fetch('http://localhost:9090/api/reply/' + reply_id, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      headers: {
+         Accept: 'application/json',
+         'Content-Type': 'application/json'
+      },
+      body: read_cookie('access_token')
+   });
+};
+const modifyReply = reply_id => {};
+const nicknameFromSession = () => {
+   if (localStorage.getItem('webber_user') !== null)
+      return JSON.parse(localStorage.getItem('webber_user')).nickname;
+};
 class Reply extends Component {
-   // console.log('reply : ' + JSON.stringify(data[0]));
-   //console.log(JSON.stringify(data));
-   //   const { reply_Id, board_Id, content, nickname, date, thumbnail } = data[0];
+   state = {
+      Active: false,
+      nickname: {}
+   };
    render() {
       const {
-         reply_Id,
-         board_Id,
+         reply_id,
+         //board_id,
          content,
          nickname,
          date,
          thumbnail
-      } = this.props;
-      //console.log(this.props.content)
+      } = this.props.data;
+
+      console.log(nicknameFromSession());
+      console.log(nickname);
       return (
          <div className="Reply">
             <div className="Reply_thumbnail">
@@ -29,24 +52,29 @@ class Reply extends Component {
                   <div className="Reply_regdate">{date}</div>
                </div>
                <div className="Reply_contents">{content}</div>
-               <div className="Reply_buttons">
-                  <div className="Reply_modify">
-                     <IconContext.Provider
-                        className="Reply_modify_button"
-                        value={{ size: '18' }}
+               {nicknameFromSession() === nickname && (
+                  <div className="Reply_buttons">
+                     <div className="Reply_modify">
+                        <IconContext.Provider
+                           className="Reply_modify_button"
+                           value={{ size: '18' }}
+                        >
+                           <GoTools onClick={modifyReply(reply_id)} />
+                        </IconContext.Provider>
+                     </div>
+                     <div
+                        className="Reply_trash"
+                        onClick={() => deleteReply(reply_id)}
                      >
-                        <GoTools />
-                     </IconContext.Provider>
+                        <IconContext.Provider
+                           className="Reply_trash_button"
+                           value={{ size: '18' }}
+                        >
+                           <GoTrashcan />
+                        </IconContext.Provider>
+                     </div>
                   </div>
-                  <div className="Reply_trash">
-                     <IconContext.Provider
-                        className="Reply_trash_button"
-                        value={{ size: '18' }}
-                     >
-                        <GoTrashcan />
-                     </IconContext.Provider>
-                  </div>
-               </div>
+               )}
             </div>
          </div>
       );

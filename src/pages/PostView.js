@@ -6,8 +6,16 @@ import { PostViewFooter } from 'components/PostViewFooter';
 
 class PostView extends Component {
    state = {
-      data: {}
+      data: {},
+      isData: false
    };
+   constructor() {
+      super();
+      this.setState({
+         isData: false
+      });
+   }
+
    componentDidMount() {
       fetch(
          'http://localhost:9090/api/community/' +
@@ -16,8 +24,10 @@ class PostView extends Component {
          .then(res => {
             res.json().then(data => {
                this.setState({
-                  data
+                  data,
+                  isData: true
                });
+               console.log();
             });
          })
          .catch(err => {
@@ -25,15 +35,20 @@ class PostView extends Component {
          });
    }
    render() {
-      return (
-         <div className="PostViewTemplate">
-            <div className="PostViewSection">
-               <PostViewHeader data={this.state.data} />
-               <PostViewBody data={this.state.data} />
-               <PostViewFooter data={this.state.data} />
+      const { board_id } = this.props.match.params;
+      if (!this.state.isData) return '로딩중...';
+      else {
+         console.log(this.state.data);
+         return (
+            <div className="PostViewTemplate">
+               <div className="PostViewSection">
+                  <PostViewHeader data={this.state.data} />
+                  <PostViewBody data={this.state.data} />
+                  <PostViewFooter data={board_id} />
+               </div>
             </div>
-         </div>
-      );
+         );
+      }
    }
 }
 

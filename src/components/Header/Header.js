@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { HeaderLogo } from 'components/HeaderLogo';
 import { HeaderNav } from 'components/HeaderNav';
 import { GoogleLogout } from 'react-google-login';
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
+import { delete_cookie } from 'sfcookies';
 import './Header.scss';
 
 const userMenu = () => {
