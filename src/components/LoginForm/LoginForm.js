@@ -46,6 +46,7 @@ const responseGoogle = response => {
                      JSON.stringify(data.userVo)
                   );
                   bake_cookie('access_token', data.token);
+                  window.location.replace('/');
                });
             }
             if (res.status === 400) {

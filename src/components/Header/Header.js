@@ -106,13 +106,12 @@ class Header extends Component {
                               >
                                  profile
                               </Link>
-                              <GoogleLogout
-                                 onLogoutSuccess={logout}
-                                 tag="div"
+                              <div
+                                 onClick={logout}
                                  className="HeaderNav_Googlelogout"
                               >
                                  logout
-                              </GoogleLogout>
+                              </div>
                            </div>
                         </div>
                      </Fragment>

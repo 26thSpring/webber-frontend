@@ -30,16 +30,6 @@ const PostViewHeader = ({ data }) => {
 
          <div className="PostViewHeader_info">
             <div className="PostViewHeader_regDate_value">{regdate}</div>
-            <div className="PostViewHeader_reply">
-               <div className="PostViewHeader_reply_icon">
-                  <IconContext.Provider value={{ size: '18' }}>
-                     <GoComment />
-                  </IconContext.Provider>
-               </div>
-               <div className="PostViewHeader_reply_value">
-                  {replyNum} replys
-               </div>
-            </div>
          </div>
       </div>
    );

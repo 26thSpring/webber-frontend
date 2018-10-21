@@ -5,20 +5,6 @@ import { GoTrashcan } from 'react-icons/go/';
 import { GoTools } from 'react-icons/go/';
 import { read_cookie } from 'sfcookies';
 
-const deleteReply = reply_id => {
-   //    this.setState = {
-   //       Active: !this.state.Active
-   //    };
-   fetch('http://localhost:9090/api/reply/' + reply_id, {
-      credentials: 'same-origin',
-      method: 'DELETE',
-      headers: {
-         Accept: 'application/json',
-         'Content-Type': 'application/json'
-      },
-      body: read_cookie('access_token')
-   });
-};
 const modifyReply = reply_id => {};
 const nicknameFromSession = () => {
    if (localStorage.getItem('webber_user') !== null)
@@ -28,6 +14,28 @@ class Reply extends Component {
    state = {
       Active: false,
       nickname: {}
+   };
+   constructor(props) {
+      super(props);
+
+      this.deleteReply = this.deleteReply.bind(this);
+   }
+   deleteReply = e => {
+      fetch('http://localhost:9090/api/reply/' + this.props.data.reply_id, {
+         credentials: 'same-origin',
+         method: 'DELETE',
+         headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+         },
+         body: read_cookie('access_token')
+      }).then(res => {
+         console.log('삭제');
+         res.json().then(data => {
+            console.log(data);
+            window.location.reload();
+         });
+      });
    };
    render() {
       const {
@@ -62,10 +70,7 @@ class Reply extends Component {
                            <GoTools onClick={modifyReply(reply_id)} />
                         </IconContext.Provider>
                      </div>
-                     <div
-                        className="Reply_trash"
-                        onClick={() => deleteReply(reply_id)}
-                     >
+                     <div className="Reply_trash" onClick={this.deleteReply}>
                         <IconContext.Provider
                            className="Reply_trash_button"
                            value={{ size: '18' }}

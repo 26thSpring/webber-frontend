@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './PostViewFooter.scss';
 import { Reply } from 'components/Reply';
 import { read_cookie } from 'sfcookies';
+import { IconContext } from 'react-icons';
+import { GoComment } from 'react-icons/go/';
 
 class PostViewFooter extends Component {
    state = {
@@ -9,19 +11,29 @@ class PostViewFooter extends Component {
       isData: false
    };
 
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
       this.setState({
          isData: false
       });
+
+      this.replyPost = this.replyPost.bind(this);
    }
    replyPost(e) {
       e.preventDefault();
       const form = document.getElementById('replySubmit');
       const formData = new FormData(form);
-      console.log(formData);
+      console.log(form);
+      console.log(formData.get('board_id'));
       fetch('http://localhost:9090/api/reply', {
-         method: 'post'
+         method: 'post',
+         body: formData
+      }).then(res => {
+         res.json().then(data => {
+            if (data.result === 'success') {
+               this.callAPI();
+            }
+         });
       });
    }
    callAPI() {
@@ -76,6 +88,17 @@ class PostViewFooter extends Component {
                      />
                   </div>
                   <div className="replyPost">
+                     <div className="PostViewHeader_reply">
+                        <div className="PostViewHeader_reply_icon">
+                           <IconContext.Provider value={{ size: '18' }}>
+                              <GoComment />
+                           </IconContext.Provider>
+                        </div>
+                        <div className="PostViewHeader_reply_value">
+                           {this.state.data.length} 개의 댓글
+                        </div>
+                     </div>
+
                      <button className="replyPost_button" type="submit">
                         POST
                      </button>

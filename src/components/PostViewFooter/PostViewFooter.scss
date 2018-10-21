@@ -20,7 +20,8 @@ textarea {
 }
 .replyPost {
   display: flex;
-  justify-content: flex-end;
+  margin-bottom: 1rem;
+  justify-content: space-between;
 }
 .replyPost_button {
   font-family: "Roboto";

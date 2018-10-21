@@ -3,19 +3,37 @@ import './RegisterForm.scss';
 import { MdArrowForward } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 import { createBrowserHistory } from 'history';
+import { bake_cookie } from 'sfcookies';
 
 const RegisterForm = ({ user }) => {
-   //    const handleRedirect = () => {
-   //       console.log('클릭!');
-   //       const browserHistory = createBrowserHistory();
-   //       console.log(browserHistory);
-   //       browserHistory.push('/login', 'hihi');
-   //       browserHistory.go(0);
-   //    };
    console.log(user);
+
+   const registerSubmit = e => {
+      e.preventDefault();
+      const formData = new FormData(document.getElementById('form_register'));
+
+      console.log(document.getElementById('form_register'));
+      console.log(formData.get('email'));
+      fetch('http://localhost:9090/api/auth/register', {
+         method: 'post',
+         body: formData
+      }).then(res => {
+         console.log(res);
+         res.json().then(data => {
+            localStorage.setItem('webber_user', JSON.stringify(data.userVo));
+            bake_cookie('access_token', data.token);
+            window.location.replace('/');
+         });
+      });
+   };
    return (
       <div className="RegisterForm">
-         <form action="http://localhost:9090/api/auth/register" method="POST">
+         <form
+            id="form_register"
+            action="http://localhost:9090/api/auth/register"
+            method="POST"
+            onSubmit={registerSubmit}
+         >
             <div className="RegisterForm_header">
                <div className="RegisterForm_header_title">
                   webber&nbsp;

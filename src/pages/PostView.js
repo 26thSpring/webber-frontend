@@ -7,6 +7,7 @@ import { PostViewFooter } from 'components/PostViewFooter';
 class PostView extends Component {
    state = {
       data: {},
+      reply: [],
       isData: false
    };
    constructor() {
@@ -34,6 +35,27 @@ class PostView extends Component {
             console.log(err);
          });
    }
+
+   mergeReply() {
+      fetch(
+         'http://localhost:9090/api/community/' +
+            this.props.match.params.board_id
+      )
+         .then(res => {
+            res.json().then(data => {
+               console.log('fetch');
+               console.log(data);
+               this.setState({
+                  data: data.replies,
+                  isData: true
+               });
+            });
+         })
+         .catch(err => {
+            console.log(err);
+         });
+   }
+
    render() {
       const { board_id } = this.props.match.params;
       if (!this.state.isData) return '로딩중...';
