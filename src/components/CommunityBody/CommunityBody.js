@@ -13,14 +13,7 @@ const CommunityBody = () => {
             </Link>
          </div>
          <PostListContainer />
-         {/* <div className="CommunityBody_postList">
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-         </div> */}
+         
       </div>
    );
 };
