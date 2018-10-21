@@ -3,10 +3,15 @@ import './ProfileBody.scss';
 import { TemplatePost } from 'components/TemplatePost';
 
 const ProfileBody = ({ data }) => {
-   console.log('profilebody : ' + JSON.stringify(data).templatelist);
+   console.log('다다');
+   console.log(data);
    return (
       <div className="ProfileBody">
-         <TemplatePost data={data} />
+         <div className="ProfileBody_templateList">
+            {data.templateList.map((template, index) => {
+               return <TemplatePost data={template} />;
+            })}
+         </div>
       </div>
    );
 };

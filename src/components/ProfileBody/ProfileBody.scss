@@ -8,14 +8,20 @@
 //   display: flex;
 //   flex-wrap: wrap;
 // }
-.TemplatePost {
-  @include media("<huge") {
-    width: calc(50% - 2.5rem);
-  }
-  @include media("<small") {
-    width: calc(100%);
-    margin: 0;
-    margin-top: 0.875rem;
-    margin-bottom: 0.875rem;
+
+.ProfileBody_templateList {
+  display: flex;
+  flex-wrap: wrap;
+
+  .TemplatePost {
+    @include media("<huge") {
+      width: calc(50% - 2.5rem);
+    }
+    @include media("<small") {
+      width: calc(100%);
+      margin: 0;
+      margin-top: 0.875rem;
+      margin-bottom: 0.875rem;
+    }
   }
 }
