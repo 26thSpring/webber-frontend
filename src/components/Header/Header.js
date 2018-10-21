@@ -6,19 +6,25 @@ import { GoogleLogout } from 'react-google-login';
 import { delete_cookie } from 'sfcookies';
 import './Header.scss';
 
+window.document.body.onclick = () => {
+   if (localStorage.getItem('webber_user')) {
+      window.document
+         .getElementsByClassName('userMenuPositioner')[0]
+         .classList.add('userMenu_disable');
+   }
+};
+
 const userMenu = () => {
    window.document
       .getElementsByClassName('userMenuPositioner')[0]
-      .classList.toggle('userMenu_disable');
-   //console.log(window.document.getElementsByClassName('userMenuPositioner')[0]);
+      .classList.remove('userMenu_disable');
 };
 const logout = () => {
    delete_cookie('access_token');
-   //window.localStorage.clear('webberUser');
    window.localStorage.clear();
+   window.location.replace('/');
 };
 const getUserThumbnail = () => {
-   //return localStorage.getItem('webberUser').thumbnail;
    return JSON.parse(localStorage.getItem('webber_user')).thumbnail;
 };
 const getUserNickname = () => {

@@ -5,8 +5,15 @@ import { ProfileBody } from 'components/ProfileBody';
 
 class Profile extends Component {
    state = {
-      data: {}
+      data: {},
+      isData: false
    };
+   constructor() {
+      super();
+      this.setState({
+         isData: false
+      });
+   }
    componentDidMount() {
       //console.log(this.props.match.params);
       if (this.props.match.params) {
@@ -16,7 +23,8 @@ class Profile extends Component {
             console.log(res);
             res.json().then(data => {
                this.setState({
-                  data
+                  data,
+                  isData: true
                });
 
                console.log(data);
@@ -25,15 +33,19 @@ class Profile extends Component {
       }
    }
    render() {
-      return (
-         <div className="ProfileTemplate">
-            <div className="ProfileHead_mobile_head" />
-            <div className="ProfileSection">
-               <ProfileHead data={this.state.data} />
-               <ProfileBody data={this.state.data} />
+      if (!this.state.isData) {
+         return '로딩중...';
+      } else {
+         return (
+            <div className="ProfileTemplate">
+               <div className="ProfileHead_mobile_head" />
+               <div className="ProfileSection">
+                  <ProfileHead data={this.state.data} />
+                  <ProfileBody data={this.state.data} />
+               </div>
             </div>
-         </div>
-      );
+         );
+      }
    }
 }
 export default Profile;
