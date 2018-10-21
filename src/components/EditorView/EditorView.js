@@ -30,23 +30,30 @@ const componentDrop = e => {
       console.log(what.tag);
 
       component = document.createElement(what.tag);
-      component.style.width = defaultStyle.width;
-      component.style.height = defaultStyle.height;
+      console.log(e.target.getBoundingClientRect());
+      const childWidth = e.target.getBoundingClientRect().width;
+      const childHeight = e.target.getBoundingClientRect().height;
+      console.log(childWidth, childHeight);
+      component.style.width = childWidth / 2 + 'px';
+      component.style.height = childHeight / 2 + 'px';
       component.style.backgroundColor = randomColor();
       e.target.appendChild(component);
+
+      window.$();
    }
    //if (component) e.target.appendChild(document.getElementById(component));
 };
 
-const EditorView = () => {
+const EditorView = ({ onChangeCurrent, styles }) => {
    return (
       <Fragment>
          <div
+            onClick={onChangeCurrent}
             onDrop={componentDrop}
             onDragOver={allowDrop}
             className="EditorView"
          />
-         <EditorStyler />
+         <EditorStyler styles={styles} />
       </Fragment>
    );
 };

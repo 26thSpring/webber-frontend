@@ -2,7 +2,7 @@ import React from 'react';
 import './EditorStyler.scss';
 import interact from 'interactjs';
 
-const EditorStyler = () => {
+const EditorStyler = ({ styles }) => {
    interact('.EditorStyler').draggable({
       // enable inertial throwing
       inertia: false,
@@ -34,28 +34,36 @@ const EditorStyler = () => {
       target.setAttribute('data-y', y);
    }
    window.dragMoveListener = dragMoveListener;
-
-   return (
-      <div className="EditorStyler">
-         <div className="EditorStyler_header">
-            <div>스타일 편집기</div>
-            <span className="dragZone" />
-         </div>
-         <div className="EditorStyler_body">
-            <div className="position">position</div>
-            <div className="display">display</div>
-            <div className="size">
-               <div className="width">width</div>
-               <div className="height">height</div>
+   if (!styles) {
+      null;
+   } else {
+      console.log('아아' + styles.width);
+      return (
+         <div className="EditorStyler" onChange={e => console.log(e.target)}>
+            <div className="EditorStyler_header">
+               <div>스타일 편집기</div>
+               <span className="dragZone" />
             </div>
-            <div className="backgroundColor">background-color</div>
-            <div className="color">font-color</div>
-            <div className="border">border</div>
-            <div className="margin">margin</div>
-            <div className="padding">padding</div>
+            <div className="EditorStyler_body">
+               <div className="position">{styles.position}</div>
+               <div className="display">{styles.display}</div>
+               <div className="size">
+                  <input
+                     type="text"
+                     className="width"
+                     value={styles.width || ''}
+                  />
+                  <div className="height">{styles.height}</div>
+               </div>
+               <div className="backgroundColor">{styles.backgroundColor}</div>
+               <div className="color">{styles.color}</div>
+               <div className="border">{styles.border}</div>
+               <div className="margin">{styles.margin}</div>
+               <div className="padding">{styles.padding}</div>
+            </div>
          </div>
-      </div>
-   );
+      );
+   }
 };
 
 export default EditorStyler;

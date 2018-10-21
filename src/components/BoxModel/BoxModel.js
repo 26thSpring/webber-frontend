@@ -32,17 +32,6 @@ const BoxModel = () => {
                   {'<div />'}
                </div>
             </div>
-            {/* <div className="BoxModel_span">
-               {'<span />'}
-               <span
-                  id="span"
-                  draggable="true"
-                  onDragStart={componentDrag}
-                  className="BoxModel_span_clone"
-               >
-                  {'<span />'}
-               </span>
-            </div> */}
          </div>
       </div>
    );

@@ -1,14 +1,12 @@
 import React from 'react';
 import './Editor.scss';
-import { EditorNav } from 'components/EditorNav';
-import { EditorView } from 'components/EditorView';
+import EditorContainer from 'containers/EditorContainer';
 
 const Editor = () => {
    return (
       <div className="EditorTemplate">
          <div className="EditorSection">
-            <EditorNav />
-            <EditorView />
+            <EditorContainer />
          </div>
       </div>
    );
