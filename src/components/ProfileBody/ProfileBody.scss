@@ -3,6 +3,7 @@
 .ProfileBody {
   display: flex;
   margin-top: 2rem;
+  justify-content: center;
 }
 // .ProfileBody_TemplateList {
 //   display: flex;
@@ -12,6 +13,10 @@
 .ProfileBody_templateList {
   display: flex;
   flex-wrap: wrap;
+  width: 70rem;
+  @include media("<small") {
+    width: 100%;
+  }
 
   .TemplatePost {
     @include media("<huge") {
