@@ -50,7 +50,7 @@ const TemplatePost = ({ data }) => {
             </div>
             <div className="TemplatePost_body_toggle">
                <IconContext.Provider
-                  value={{ size: '23', className: 'likeIcon' }}
+                  value={{ size: '23', className: 'likeIcon skfjdskfj' }}
                >
                   <div className="toggle_like flex-row-center">
                      <TiHeartOutline />

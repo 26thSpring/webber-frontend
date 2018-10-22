@@ -10,6 +10,7 @@
   background-color: white;
   border-radius: 5px;
   color: $oc-gray-9;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
 
   @include media("<huge") {
     width: calc(25% - 2.5rem);
@@ -29,7 +30,7 @@
 }
 .TemplatePost_head {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(20, 17, 17, 0.85);
   padding-top: 50%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -62,6 +63,7 @@
   padding: 1rem;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
+  box-shadow: 0px -3px 4px 0px rgba(0, 0, 0, 0.015);
 }
 .TemplatePost_body_info {
   border-bottom: 1px solid $oc-gray-2;

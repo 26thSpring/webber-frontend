@@ -27,6 +27,7 @@
     "file-loader": "1.1.5",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
+    "html2canvas": "^1.0.0-alpha.12",
     "immutable": "^3.8.2",
     "immutable-assign": "^2.0.9",
     "include-media": "^1.4.9",
