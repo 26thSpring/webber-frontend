@@ -4,6 +4,7 @@ import { HeaderLogo } from 'components/HeaderLogo';
 import { MdMoreVert } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 import html2canvas from 'html2canvas';
+import { read_cookie } from 'sfcookies';
 
 const EditorHeader = () => {
    const fileDownLoad = () => {
@@ -29,7 +30,7 @@ const EditorHeader = () => {
 
       const formData = new FormData();
 
-      formData.append('nickname', user.nickname);
+      formData.append('access_token', read_cookie('access_token'));
       formData.append(
          'htmlCont',
          document.getElementsByClassName('EditorView')[0].innerHTML
@@ -57,6 +58,9 @@ const EditorHeader = () => {
                   res.json().then(data => {
                      if (data.result === 'success') {
                         console.log(data);
+                        setTimeout(() => {
+                           window.location.href = '/template';
+                        }, 2000);
                         //window.location.replace('/template');
                      }
                   });
