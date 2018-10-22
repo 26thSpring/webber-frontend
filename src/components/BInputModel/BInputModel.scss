@@ -1,25 +1,35 @@
 @import "utils";
 
-.BoxModel {
+.BInputModel {
   display: flex;
   flex-direction: column;
   color: white;
   font-size: 1.2rem;
   font-weight: 500;
+  margin-top: 2rem;
 
+  input {
+    color: white;
+    font-weight: 400;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
   .active {
     height: 7rem;
     opacity: 1;
   }
 }
-.BoxModel_btn_dropdown {
+.BInputModel_btn_dropdown {
   height: 2.7rem;
 
   &:hover {
     cursor: pointer;
   }
 }
-.BoxModel_dropdown_menu {
+.BInputModel_dropdown_menu {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +44,7 @@
   transition: all 0.25s ease;
   overflow: hidden;
 }
-.BoxModel_components {
+.BInputModel_components {
   position: relative;
   display: flex;
   justify-content: center;
@@ -45,19 +55,19 @@
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-.BoxModel_div {
-  @extend .BoxModel_components;
+.BInputModel_text {
+  @extend .BInputModel_components;
   background-color: $oc-blue-5;
 
   &:hover {
     background-color: lighten($color: $oc-blue-5, $amount: 5);
   }
 }
-.BoxModel_span {
-  @extend .BoxModel_components;
+.BInputModel_span {
+  @extend .BInputModel_components;
   background-color: $oc-red-6;
 }
-.BoxModel_clone {
+.BInputModel_clone {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -68,19 +78,21 @@
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-.BoxModel_div_clone {
-  @extend .BoxModel_clone;
-  background-color: $oc-blue-5;
+.BInputModel_text_clone {
+  @extend .BInputModel_components;
+  position: absolute;
+  width: auto;
+  background-color: $oc-gray-5;
 
   &:hover {
-    background-color: lighten($color: $oc-blue-5, $amount: 5);
+    background-color: lighten($color: $oc-gray-5, $amount: 5);
   }
   &:active {
     //opacity: 0.7;
   }
 }
-.BoxModel_span_clone {
-  @extend .BoxModel_clone;
+.BInputModel_span_clone {
+  @extend .BInputModel_clone;
   background-color: $oc-red-6;
 
   &:hover {

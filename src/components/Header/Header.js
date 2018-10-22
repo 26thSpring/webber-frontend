@@ -8,9 +8,10 @@ import './Header.scss';
 
 window.document.body.onclick = () => {
    if (localStorage.getItem('webber_user')) {
-      window.document
-         .getElementsByClassName('userMenuPositioner')[0]
-         .classList.add('userMenu_disable');
+      window.document.getElementsByClassName('userMenuPositioner')[0] &&
+         window.document
+            .getElementsByClassName('userMenuPositioner')[0]
+            .classList.add('userMenu_disable');
    }
 };
 

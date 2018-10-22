@@ -1,9 +1,7 @@
+@import "utils";
+
 .EditorView {
   flex: 1 0 0;
   padding: 1rem;
   overflow: scroll;
-  div {
-    width: 5rem;
-    height: 5rem;
-  }
 }
