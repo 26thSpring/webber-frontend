@@ -1,9 +1,10 @@
 import React from 'react';
 import './TemplatePost.scss';
 import { Link } from 'react-router-dom';
-import { MdImage, MdMoreVert } from 'react-icons/md';
+import { MdImage, MdMoreVert, MdArrowDownward } from 'react-icons/md';
 import { TiHeartOutline, TiBookmark } from 'react-icons/ti';
 import { IconContext } from 'react-icons';
+import { read_cookie } from 'sfcookies';
 
 const TemplatePost = ({ data }) => {
    console.log('TemplatePost : ' + JSON.stringify(data));
@@ -22,15 +23,18 @@ const TemplatePost = ({ data }) => {
       favor,
       replies,
       replyNum
-      //댓글 갯수가 몇갠지 뽑아야됨
    } = data;
+
+   const downloadFile = e => {
+      window.location.replace(
+         'http://localhost:9090/api/template/file/' + data.template_id
+      );
+   };
+
    return (
       <div className="TemplatePost">
          <Link className="TemplatePost_head" to="/template">
             <div className="TemplatePost_head_thumbnail">
-               {/* <IconContext.Provider value={{ size: '80', color: 'white' }}>
-                  <MdImage />
-               </IconContext.Provider> */}
                <img
                   src={tthumbnail}
                   alt={file_name}
@@ -44,9 +48,7 @@ const TemplatePost = ({ data }) => {
                <div className="writer">
                   <Link to="/template">{nickname}</Link>
                </div>
-               <div className="regdate_reply">
-                  {regdate} · {replyNum} reply
-               </div>
+               <div className="regdate_reply">{regdate}</div>
             </div>
             <div className="TemplatePost_body_toggle">
                <IconContext.Provider
@@ -57,16 +59,9 @@ const TemplatePost = ({ data }) => {
                      {likes}
                   </div>
                </IconContext.Provider>
-               {/* <IconContext.Provider
-                  value={{ size: '23', className: 'bookmarkIcon' }}
-               >
-                  <div className="toggle_bookmark flex-row-center">
-                     <TiBookmark />
-                  </div>
-               </IconContext.Provider> */}
                <IconContext.Provider value={{ size: '23' }}>
                   <div className="button_more flex-row-center">
-                     <MdMoreVert />
+                     <MdArrowDownward onClick={e => downloadFile()} />
                   </div>
                </IconContext.Provider>
             </div>

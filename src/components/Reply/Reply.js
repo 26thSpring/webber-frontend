@@ -62,14 +62,6 @@ class Reply extends Component {
                <div className="Reply_contents">{content}</div>
                {nicknameFromSession() === nickname && (
                   <div className="Reply_buttons">
-                     <div className="Reply_modify">
-                        <IconContext.Provider
-                           className="Reply_modify_button"
-                           value={{ size: '18' }}
-                        >
-                           <GoTools onClick={modifyReply(reply_id)} />
-                        </IconContext.Provider>
-                     </div>
                      <div className="Reply_trash" onClick={this.deleteReply}>
                         <IconContext.Provider
                            className="Reply_trash_button"

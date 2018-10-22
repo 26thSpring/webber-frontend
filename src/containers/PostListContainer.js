@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Post } from 'components/Post';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';

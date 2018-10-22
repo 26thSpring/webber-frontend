@@ -18,42 +18,45 @@ class PostView extends Component {
    }
 
    componentDidMount() {
-      fetch(
-         'http://localhost:9090/api/community/' +
-            this.props.match.params.board_id
-      )
-         .then(res => {
-            res.json().then(data => {
-               this.setState({
-                  data,
-                  isData: true
+      console.log(this.props);
+      if (this.props.match.params.board_id !== null)
+         fetch(
+            'http://localhost:9090/api/community/' +
+               this.props.match.params.board_id
+         )
+            .then(res => {
+               res.json().then(data => {
+                  this.setState({
+                     data,
+                     isData: true
+                  });
+                  console.log();
                });
-               console.log();
+            })
+            .catch(err => {
+               console.log(err);
             });
-         })
-         .catch(err => {
-            console.log(err);
-         });
    }
 
    mergeReply() {
-      fetch(
-         'http://localhost:9090/api/community/' +
-            this.props.match.params.board_id
-      )
-         .then(res => {
-            res.json().then(data => {
-               console.log('fetch');
-               console.log(data);
-               this.setState({
-                  data: data.replies,
-                  isData: true
+      if (this.props.match.params.board_id !== null)
+         fetch(
+            'http://localhost:9090/api/community/' +
+               this.props.match.params.board_id
+         )
+            .then(res => {
+               res.json().then(data => {
+                  console.log('fetch');
+                  console.log(data);
+                  this.setState({
+                     data: data.replies,
+                     isData: true
+                  });
                });
+            })
+            .catch(err => {
+               console.log(err);
             });
-         })
-         .catch(err => {
-            console.log(err);
-         });
    }
 
    render() {

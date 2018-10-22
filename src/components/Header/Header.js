@@ -86,7 +86,6 @@ class Header extends Component {
          //console.log(this.state.Active);
          //console.log(getUserThumbnail());
       };
-
       return (
          <Fragment>
             <div className="Header">
@@ -118,6 +117,14 @@ class Header extends Component {
                               >
                                  logout
                               </div>
+                              {JSON.parse(localStorage.getItem('webber_user'))
+                                 .auth === 1 && (
+                                    <div className="admin">
+                                       <a href="http://localhost:9090/admin">
+                                       admin
+                                       </a>
+                                    </div>
+                                 )}
                            </div>
                         </div>
                      </Fragment>

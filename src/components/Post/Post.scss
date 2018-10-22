@@ -18,6 +18,10 @@
     margin: 0.2rem;
   }
 }
+.Post:hover {
+  background-color: rgb(243, 243, 243);
+  box-shadow: 0.001rem;
+}
 .Post_thumbnail {
   width: 5rem;
   height: 5rem;
@@ -43,12 +47,24 @@
   //border: 0.1rem solid black;
 }
 .Post_nickname {
+  display: flex;
+  align-items: center;
   font-size: 1.8rem;
   font-weight: bold;
   color: $oc-violet-8;
   @include media("<small") {
     font-size: 1.4rem;
   }
+}
+.Post_deleteButton {
+  position: absolute;
+  //border: 0.01rem solid black;
+  right: 19rem;
+  height: 1.6rem;
+  width: 1.6rem;
+  color: red;
+  font-size: 1.4rem;
+  font-weight: 900;
 }
 .Post_title {
   font-size: 1.4rem;
@@ -58,6 +74,7 @@
 }
 .Post_info {
   flex: 0 0 10rem;
+  margin-right: 1.6rem;
   width: 7rem;
   padding-right: 1rem;
   padding-left: 1rem;

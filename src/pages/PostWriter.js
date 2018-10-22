@@ -1,8 +1,5 @@
 import React from 'react';
 import './PostWriter.scss';
-import { PostWriterHeader } from 'components/PostWriterHeader';
-import { PostWriterContent } from 'components/PostWriterContent';
-import { PostWriterPreview } from 'components/PostWriterPreview';
 import PostWriterContainer from 'containers/PostWriterContainer';
 
 const PostWriter = () => {
@@ -15,11 +12,6 @@ const PostWriter = () => {
             className="PostWriterSection"
          >
             <PostWriterContainer />
-            {/* <PostWriterHeader />
-            <div className="PostWriterBody">
-               <PostWriterContent />
-               <PostWriterPreview />
-            </div> */}
          </form>
       </div>
    );
