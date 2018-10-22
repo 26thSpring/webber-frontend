@@ -6,6 +6,7 @@
 .CommunityBody_link_postwriter_wrapper {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
 }
 .CommunityBody_link_postwriter {
   font-size: 1.1rem;
@@ -22,6 +23,14 @@
   &:hover {
     background-color: $oc-violet-5;
   }
+}
+.searchBtn {
+  font-size: 1rem;
+  color: white;
+}
+.searchInput {
+  width: 32rem;
+  height: 2rem;
 }
 .CommunityBody_postList {
   margin-top: 0.875rem;
