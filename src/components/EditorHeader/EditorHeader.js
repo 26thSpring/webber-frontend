@@ -56,7 +56,11 @@ const EditorHeader = () => {
                }).then(res => {
                   res.json().then(data => {
                      if (data.result === 'success') {
-                        window.location.replace('/template');
+                        console.log(data);
+                        setTimeout(() => {
+                           window.location.href = '/template';
+                        }, 2000);
+                        //window.location.replace('/template');
                      }
                   });
                });
