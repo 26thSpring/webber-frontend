@@ -2,10 +2,7 @@ import React from 'react';
 import './BoxModel.scss';
 
 const componentDrag = e => {
-   e.dataTransfer.setData(
-      'text/plain',
-      JSON.stringify({ type: 'BoxModel', tag: e.target.tagName })
-   );
+   e.dataTransfer.setData('text/plain', e.target.tagName);
 };
 
 const BoxModel = () => {

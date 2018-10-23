@@ -2,10 +2,7 @@ import React from 'react';
 import './BInputModel.scss';
 
 const componentDrag = e => {
-   e.dataTransfer.setData(
-      'text/plain',
-      JSON.stringify({ type: 'BInputModel', tag: e.target.id })
-   );
+   e.dataTransfer.setData('text/plain', e.target.id);
 };
 
 const BInputModel = () => {

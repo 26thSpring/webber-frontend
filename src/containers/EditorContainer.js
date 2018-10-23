@@ -31,7 +31,12 @@ class EditorContainer extends Component {
          color,
          border,
          margin,
-         padding
+         padding,
+         flexDirection,
+         justifyContent,
+         alignItems,
+         flexWrap,
+         innerHTML
       } = e.target.style;
 
       const currentStyle = {
@@ -43,7 +48,12 @@ class EditorContainer extends Component {
          color,
          border,
          margin,
-         padding
+         padding,
+         flexDirection,
+         justifyContent,
+         alignItems,
+         flexWrap,
+         innerHTML
       };
 
       EditorActions.mergeStyle(currentStyle);
@@ -65,19 +75,17 @@ class EditorContainer extends Component {
       const value = e.target.value;
       const newAttr = { attr, value };
 
+      if (attr === 'innerHTML') window.$(current).text(value);
+      if (
+         attr === 'justifyContent' ||
+         attr === 'alignItems' ||
+         attr === 'flexWrap'
+      ) {
+         console.log(e.target.checked);
+      }
       current.style[attr] = value;
 
-      //const currentClone = cloneDeep(current);
-      //const currentClone = window.$(current).clone()[0];
-      //currentClone.style[attr] = value;
-      //console.log(currentClone.style);
-      //currentClone.style = Object.assign(currentClone.style, newAttr);
-      //const newStyle = Object.assign(currentStyle, newAttr);
-      //const newStyle = cloneDeep(this.props.styles);
-
       console.log(newAttr);
-      //console.log(newStyle);
-      //this.props.currentComponent.style = newStyle;
 
       EditorActions.changeStyle(newAttr);
 
@@ -87,7 +95,7 @@ class EditorContainer extends Component {
    };
 
    render() {
-      const { handleChangeCurrent, handleChangeStyle } = this;
+      const { handleChangeCurrent, handleChangeStyle, handleTextWrite } = this;
       const { currentComponent, styles, innerHTML } = this.props;
       return (
          <Fragment>
@@ -98,6 +106,7 @@ class EditorContainer extends Component {
                currentComponent={currentComponent}
                onChangeCurrent={handleChangeCurrent}
                onChangeStyle={handleChangeStyle}
+               handleTextWrite={handleTextWrite}
             />
          </Fragment>
       );

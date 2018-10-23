@@ -2,14 +2,14 @@ import { createAction, handleActions } from 'redux-actions';
 import { Map, List } from 'immutable';
 import iassign from 'immutable-assign';
 
-const MAKE_COMPONENT = 'editor/MAKE_COMPONENT';
+const TEXT_WRITE = 'editor/TEXT_WRITE';
 const INSERT_COMPONENT = 'editor/INSERT_COMPONENT';
 const CHANGE_CURRENT = 'editor/CHANGE_CURRENT';
 const CHANGE_STYLE = 'editor/CHANGE_STYLE';
 const MERGE_STYLE = 'editor/MERGE_STYLE';
 const SET_INNER = 'editor/SET_INNER';
 
-export const makeComponent = createAction(MAKE_COMPONENT, what => what);
+export const textWrite = createAction(TEXT_WRITE, what => what);
 export const insertComponent = createAction(
    INSERT_COMPONENT,
    component => component
@@ -21,6 +21,7 @@ export const setInner = createAction(SET_INNER);
 
 const initialState = Map({
    what: 'div',
+   text: '',
    innerHTML: '',
    styles: Map({
       position: '',
@@ -31,13 +32,18 @@ const initialState = Map({
       color: '',
       border: '',
       margin: '',
-      padding: ''
+      padding: '',
+      flexDirection: '',
+      justifyContent: '',
+      alignItems: '',
+      flexWrap: ''
    }),
    currentComponent: ''
 });
 
 export default handleActions(
    {
+      [TEXT_WRITE]: (state, action) => state.set('text', action.payload),
       [INSERT_COMPONENT]: (state, action) =>
          state.set('innerHTML', action.payload),
       [CHANGE_CURRENT]: (state, action) =>

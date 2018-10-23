@@ -59,7 +59,7 @@ const EditorHeader = () => {
                         console.log(data);
                         setTimeout(() => {
                            window.location.href = '/template';
-                        }, 2000);
+                        }, 3000);
                         //window.location.replace('/template');
                      }
                   });

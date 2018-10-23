@@ -23,6 +23,7 @@ class PostViewFooter extends Component {
       e.preventDefault();
       const form = document.getElementById('replySubmit');
       const formData = new FormData(form);
+      formData.append('access_token', read_cookie('access_token'));
       console.log(form);
       console.log(formData.get('board_id'));
       fetch('http://localhost:9090/api/reply', {

@@ -2,10 +2,20 @@ import React from 'react';
 import './EditorStyler.scss';
 import interact from 'interactjs';
 import { FaArrowsAltH, FaArrowsAltV } from 'react-icons/fa';
-import { MdPalette, MdFeaturedVideo, MdAirplay } from 'react-icons/md';
+import {
+   MdPalette,
+   MdFeaturedVideo,
+   MdAirplay,
+   MdTextFields
+} from 'react-icons/md';
 import { IconContext } from 'react-icons';
 
-const EditorStyler = ({ onChangeStyle, styles, currentComponent }) => {
+const EditorStyler = ({
+   onChangeStyle,
+   styles,
+   currentComponent,
+   handleTextWrite
+}) => {
    interact('.EditorStyler_header').draggable({
       // enable inertial throwing
       inertia: false,
@@ -37,7 +47,7 @@ const EditorStyler = ({ onChangeStyle, styles, currentComponent }) => {
       target.setAttribute('data-y', y);
    }
    window.dragMoveListener = dragMoveListener;
-   if (!styles || !currentComponent) {
+   if (!styles && !currentComponent) {
       return '';
    } else {
       console.log('스타일러---------------');
@@ -53,11 +63,129 @@ const EditorStyler = ({ onChangeStyle, styles, currentComponent }) => {
          color,
          border,
          margin,
-         padding
+         padding,
+         flexDirection,
+         justifyContent,
+         alignItems,
+         flexWrap,
+         innerHTML
       } = styles.toJS();
+
+      console.log('제발여');
+      console.log(styles.toJS());
+      if (position !== '') {
+         console.log(position);
+         window
+            .$('.EditorStyler')
+            .find(`#select_position_${position}`)
+            .prop('checked', true);
+         window.$('.EditorStyler_body_position label').removeClass('selected');
+         const label = window.$('.EditorStyler_body_position label');
+         for (let i = 0; i < label.length; i++) {
+            if (label.eq(i).prop('htmlFor') === `select_position_${position}`) {
+               window
+                  .$('.EditorStyler_body_position label')
+                  .removeClass('selected');
+               label.eq(i).addClass('selected');
+            }
+         }
+      } else {
+         window
+            .$('.EditorStyler_body_position input[type="radio"]')
+            .prop('checked', false);
+         window.$('.EditorStyler_body_position label').removeClass('selected');
+      }
+
+      if (display !== '') {
+         console.log(display);
+         window
+            .$('.EditorStyler')
+            .find(`#select_display_${display}`)
+            .prop('checked', true);
+         window.$('.EditorStyler_body_display label').removeClass('selected');
+         const label = window.$('.EditorStyler_body_display label');
+         console.log(label);
+         for (let i = 0; i < label.length; i++) {
+            if (label.eq(i).prop('htmlFor') === `select_display_${display}`) {
+               window
+                  .$('.EditorStyler_body_display label')
+                  .removeClass('selected');
+               label.eq(i).addClass('selected');
+            }
+         }
+      } else {
+         window
+            .$('.EditorStyler_body_display input[type="radio"]')
+            .prop('checked', false);
+         window.$('.EditorStyler_body_display label').removeClass('selected');
+      }
+
+      //   flexDirection
+      //   justifyContent
+      //     alignItems
+      //     flexWrap
+      if (justifyContent !== '') {
+         window
+            .$('.EditorStyler')
+            .find('#select_flex_justifyContent')
+            .prop('checked', true);
+      } else {
+         window
+            .$('.EditorStyler')
+            .find('#select_flex_alignItems')
+            .prop('checked', false);
+      }
+      if (alignItems !== '') {
+         window
+            .$('.EditorStyler')
+            .find('#select_flex_alignItems')
+            .prop('checked', true);
+      } else {
+         window
+            .$('.EditorStyler')
+            .find('#select_flex_flexWrap')
+            .prop('checked', false);
+      }
+      if (flexWrap !== '') {
+         window
+            .$('.EditorStyler')
+            .find('#select_flex_flexWrap')
+            .prop('checked', true);
+      } else {
+         window
+            .$('.EditorStyler')
+            .find('#select_flex_justifyContent')
+            .prop('checked', false);
+      }
+
+      if (flexDirection !== '') {
+         window
+            .$('.EditorStyler')
+            .find(`#select_flexDirection_${flexDirection}`)
+            .prop('checked', true);
+         window.$('.EditorStyler_body_flex label').removeClass('selected');
+         const label = window.$('.EditorStyler_body_flex label');
+         console.log(label);
+         for (let i = 0; i < label.length; i++) {
+            if (
+               label.eq(i).prop('htmlFor') ===
+               `select_flexDirection_${flexDirection}`
+            ) {
+               window
+                  .$('.EditorStyler_body_flex label')
+                  .removeClass('selected');
+               label.eq(i).addClass('selected');
+            }
+         }
+      } else {
+         window
+            .$('.EditorStyler_body_flex input[type="radio"]')
+            .prop('checked', false);
+         window.$('.EditorStyler_body_flex label').removeClass('selected');
+      }
+
       const selectRadio = e => {
          const label = document.getElementsByTagName('label');
-
          if (window.$(e.target).hasClass('position')) {
             for (let i = 0; i < label.length; i++) {
                if (label[i].htmlFor === e.target.id) {
@@ -76,6 +204,14 @@ const EditorStyler = ({ onChangeStyle, styles, currentComponent }) => {
                      .removeClass('selected');
                   label[i].classList.add('selected');
                }
+            }
+         }
+      };
+      const selectCheck = e => {
+         const label = window.$('.EditorStyler_body_flex label');
+         for (let i = 0; i < label.length; i++) {
+            if (label.eq(i).prop('htmlFor') === e.target.id) {
+               label.eq(i).toggleClass('selected');
             }
          }
       };
@@ -135,14 +271,14 @@ const EditorStyler = ({ onChangeStyle, styles, currentComponent }) => {
                      </IconContext.Provider>
                   </div>
                   <div>
-                     <label htmlFor="select_display_relative">플렉스</label>
-                     <label htmlFor="select_display_absolute">블록</label>
-                     <label htmlFor="select_display_fixed">인라인</label>
+                     <label htmlFor="select_display_flex">플렉스</label>
+                     <label htmlFor="select_display_block">블록</label>
+                     <label htmlFor="select_display_inline">인라인</label>
                   </div>
                   <input
                      type="radio"
                      value="flex"
-                     id="select_display_relative"
+                     id="select_display_flex"
                      name="radio_display"
                      className="display"
                      onClick={selectRadio}
@@ -150,7 +286,7 @@ const EditorStyler = ({ onChangeStyle, styles, currentComponent }) => {
                   <input
                      type="radio"
                      value="block"
-                     id="select_display_absolute"
+                     id="select_display_block"
                      name="radio_display"
                      className="display"
                      onClick={selectRadio}
@@ -158,12 +294,70 @@ const EditorStyler = ({ onChangeStyle, styles, currentComponent }) => {
                   <input
                      type="radio"
                      value="inline"
-                     id="select_display_fixed"
+                     id="select_display_inline"
                      name="radio_display"
                      className="display"
                      onClick={selectRadio}
                   />
                </div>
+               {window.$('#select_display_flex').prop('checked') && (
+                  <div className="EditorStyler_body_flex frc">
+                     <div style={{ fontWeight: '400' }}>flex 속성</div>
+                     <div className="EditorStyler_body_flex_label">
+                        <label htmlFor="select_flexDirection_row">
+                           가로정렬
+                        </label>
+                        <label htmlFor="select_flexDirection_column">
+                           세로정렬
+                        </label>
+                        <label htmlFor="select_flex_justifyContent">주축</label>
+                        <label htmlFor="select_flex_alignItems">보조축</label>
+                        <label htmlFor="select_flex_wrap">랩핑</label>
+                     </div>
+                     <input
+                        type="radio"
+                        value="row"
+                        id="select_flexDirection_row"
+                        name="radio_flexDirection"
+                        className="flexDirection"
+                        onClick={selectRadio}
+                     />
+                     <input
+                        type="radio"
+                        value="column"
+                        id="select_flexDirection_column"
+                        name="radio_flexDirection"
+                        className="flexDirection"
+                        onClick={e => {
+                           e.target.classList.toggle('selected');
+                        }}
+                     />
+                     <input
+                        type="checkbox"
+                        value="center"
+                        id="select_flex_justifyContent"
+                        name="check_flex"
+                        className="justifyContent"
+                        onClick={selectCheck}
+                     />
+                     <input
+                        type="checkbox"
+                        value="center"
+                        id="select_flex_alignItems"
+                        name="check_flex"
+                        className="alignItems"
+                        onClick={selectCheck}
+                     />
+                     <input
+                        type="checkbox"
+                        value="wrap"
+                        id="select_flex_wrap"
+                        name="check_flex"
+                        className="flexWrap"
+                        onClick={selectCheck}
+                     />
+                  </div>
+               )}
                <div className="EditorStyler_body_width frc">
                   <div className="EditorStyler_body_icons">
                      <IconContext.Provider value={{ size: '24' }}>
@@ -190,6 +384,19 @@ const EditorStyler = ({ onChangeStyle, styles, currentComponent }) => {
                      type="text"
                      className="backgroundColor"
                      value={backgroundColor}
+                  />
+               </div>
+               <div className="EditorStyler_body_innerHTML frc">
+                  <div className="EditorStyler_body_icons">
+                     <IconContext.Provider value={{ size: '24' }}>
+                        <MdTextFields />
+                     </IconContext.Provider>
+                  </div>
+                  <input
+                     type="text"
+                     onChange={handleTextWrite}
+                     className="innerHTML"
+                     value={innerHTML}
                   />
                </div>
                <div className="EditorStyler_body_color frc">{color}</div>
