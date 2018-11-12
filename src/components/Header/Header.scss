@@ -82,6 +82,10 @@
 }
 .HeaderNav_Googlelogout {
   padding-bottom: 0.6rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 .admin {
   width: 7.7rem;

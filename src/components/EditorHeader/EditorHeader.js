@@ -74,9 +74,9 @@ const EditorHeader = () => {
             <div className="EditorHeaderTitle">webber Editor</div>
          </div>
          <div className="EditorHeader_btns">
-            <div className="EditorHeader_btn_download" onClick={fileDownLoad}>
+            {/* <div className="EditorHeader_btn_download" onClick={fileDownLoad}>
                다운로드
-            </div>
+            </div> */}
             <div className="EditorHeader_btn_save" onClick={fileUpload}>
                저장하기
             </div>

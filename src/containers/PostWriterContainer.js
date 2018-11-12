@@ -34,6 +34,7 @@ class PostWriterContainer extends Component {
       const form = document.querySelector('#postWriterForm');
       console.log(form);
       const data = new FormData(form);
+      data.append('access_token', read_cookie('access_token'));
       fetch('http://localhost:9090/api/community', {
          method: 'POST',
          body: data

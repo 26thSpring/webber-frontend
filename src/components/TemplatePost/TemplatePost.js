@@ -46,7 +46,7 @@ const TemplatePost = ({ data }) => {
          <div className="TemplatePost_body">
             <div className="TemplatePost_body_info">
                <div className="writer">
-                  <Link to="/template">{nickname}</Link>
+                  <Link to={`/profile/${nickname}`}>{nickname}</Link>
                </div>
                <div className="regdate_reply">{regdate}</div>
             </div>

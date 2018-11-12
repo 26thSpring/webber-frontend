@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { GoComment, GoClock } from 'react-icons/go';
 import { read_cookie } from 'sfcookies';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const nicknameFromSession = () => {
    if (localStorage.getItem('webber_user') !== null)
@@ -25,7 +26,7 @@ const Post = ({ data }) => {
       board_Id
    } = data;
    const PostDelete = board_Id => {
-      alert(board_Id);
+      //alert(board_Id);
       fetch('http://localhost:9090/api/community/' + board_Id, {
          credentials: 'same-origin',
          method: 'DELETE',
@@ -45,7 +46,15 @@ const Post = ({ data }) => {
             </div>
             <div className="Post_contents">
                <div className="Post_nickname">{nickname}</div>
-               <div className="Post_title">{title}</div>
+               <div className="Post_title">
+                  <LinesEllipsis
+                     text={title}
+                     maxLine="1"
+                     ellipsis="..."
+                     trimRight
+                     basedOn="letters"
+                  />
+               </div>
             </div>
             <div className="Post_info">
                <div className="Post_reply">
