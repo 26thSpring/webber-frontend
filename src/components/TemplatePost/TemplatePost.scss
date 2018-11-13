@@ -95,9 +95,13 @@
   .toggle_bookmark {
     margin-right: 1rem;
   }
-  .button_more {
+  .button_download {
     position: absolute;
     width: 1.5rem;
-    right: 0.5rem;
+    right: 0.8rem;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

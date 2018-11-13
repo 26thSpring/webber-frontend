@@ -52,7 +52,7 @@ const TemplatePost = ({ data }) => {
             </div>
             <div className="TemplatePost_body_toggle">
                <IconContext.Provider
-                  value={{ size: '23', className: 'likeIcon skfjdskfj' }}
+                  value={{ size: '23', className: 'likeIcon' }}
                >
                   <div className="toggle_like flex-row-center">
                      <TiHeartOutline />
@@ -60,7 +60,7 @@ const TemplatePost = ({ data }) => {
                   </div>
                </IconContext.Provider>
                <IconContext.Provider value={{ size: '23' }}>
-                  <div className="button_more flex-row-center">
+                  <div className="button_download flex-row-center">
                      <MdArrowDownward onClick={e => downloadFile()} />
                   </div>
                </IconContext.Provider>
